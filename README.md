@@ -9,7 +9,7 @@
 <hr/>
 <h2>기획 파일</h2>
 
-[참조링크](https://docs.google.com/document/d/1qqpC41e53HDbln4_Pjy6nUqmjzcAIr2tqYAUNC80j-I/edit, "google word로")
+[참조링크](https://docs.google.com/document/d/1qqpC41e53HDbln4_Pjy6nUqmjzcAIr2tqYAUNC80j-I/edit?usp=sharing, "google word로")
 
 <br>
 <hr/>
