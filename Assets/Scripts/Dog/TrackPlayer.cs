@@ -10,11 +10,12 @@ public class TrackPlayer : MonoBehaviour
 
     [SerializeField]
     GameObject Player;
+    
     float distanceToPlayer;
     Vector3 vecToPlayer;
 
     // Start is called before the first frame update
-    void Update()
+    void LateUpdate()
     {
         Track();
     }
