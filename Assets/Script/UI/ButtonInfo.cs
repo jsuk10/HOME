@@ -13,8 +13,4 @@ public class ButtonInfo : MonoBehaviour
     {
         get { return currentType; }
     }
-    private void Awake()
-    {
-        this.gameObject.SetActive(isStartActive);
-    }
 }
