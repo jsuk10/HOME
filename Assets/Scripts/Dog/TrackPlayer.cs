@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class TrackPlayer : MonoBehaviour
 {
-    float velocity = 4f;
-    float limitDistance = 8.0f;
-    float padding = 1f;
+    private float velocity = 4f;
+    private float limitDistance = 8.0f;
+    private float padding = 1f;
 
     [SerializeField]
-    GameObject Player;
+    private GameObject Player;
     
-    float distanceToPlayer;
-    Vector3 vecToPlayer;
+    private float distanceToPlayer;
+    private Vector3 vectorToPlayer;
 
     // Start is called before the first frame update
     void LateUpdate()
@@ -22,17 +22,17 @@ public class TrackPlayer : MonoBehaviour
 
     public void Track()
     {
-        vecToPlayer = Player.transform.position - this.transform.position;
-        distanceToPlayer = vecToPlayer.magnitude;
-        vecToPlayer.Normalize();
+        vectorToPlayer = Player.transform.position - this.transform.position;
+        distanceToPlayer = vectorToPlayer.magnitude;
+        vectorToPlayer.Normalize();
 
         if(distanceToPlayer <= limitDistance - padding)
         {
-            transform.Translate(vecToPlayer * -velocity * Time.deltaTime);
+            transform.Translate(vectorToPlayer * -velocity * Time.deltaTime);
         }
         else if(limitDistance + padding <= distanceToPlayer)
         {
-            transform.Translate(vecToPlayer * velocity * Time.deltaTime);
+            transform.Translate(vectorToPlayer * velocity * Time.deltaTime);
         }
     }
     // Update is called once per frame

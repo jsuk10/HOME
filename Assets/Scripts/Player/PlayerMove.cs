@@ -4,24 +4,30 @@ using UnityEngine;
 
 public class PlayerMove: MonoBehaviour
 {
-    float velocityWalk = 2;
-    float velocityRun = 3;
-    Vector3 moveDirection;
-    Vector3 prevDirection;
+    private float velocityWalk = 2;
+    private float velocityRun = 3;
+    private Vector3 moveDirection;
+    private Vector3 prevDirection;
     float keyInputTime = 0.0f;
 
     [SerializeField]
-    GameObject Dog;
-    float timeNeedtoRun = 1.5f;
+    private GameObject Dog;
+    private float timeNeedtoRun = 1.5f;
+
+    private float v = 0;
+    private float h = 0;
+    private float prevV = 0;
+    private float prevH = 0;
     void Update()
     {
         Move();
     }
 
-    bool SetDirection()
+    private bool SetDirection()
     {
         moveDirection = new Vector3(0, 0, 0);
 
+        /*
         if(Input.GetKey(KeyCode.LeftArrow))
             moveDirection += Vector3.left;
 
@@ -33,8 +39,21 @@ public class PlayerMove: MonoBehaviour
 
         if(Input.GetKey(KeyCode.DownArrow))
             moveDirection += Vector3.down;
-        
-        Debug.Log(moveDirection.ToString());
+        */
+        v = Input.GetAxis("Vertical");
+        h = Input.GetAxis("Horizontal");
+
+        if(0 < v && prevV <= v)
+            moveDirection += Vector3.up;
+        if(v < 0 && v <= prevV)
+            moveDirection += Vector3.down;
+        if(0 < h && prevH <= h)
+            moveDirection += Vector3.right;
+        if(h < 0 && h <= prevH)
+            moveDirection += Vector3.left;
+
+        prevV = v;
+        prevH = h;
 
         if(moveDirection.magnitude == 0)
             return false;
@@ -45,26 +64,25 @@ public class PlayerMove: MonoBehaviour
         }
     }
 
-    void CheckSameDirection()
+    private void CheckSameDirection()
     {
         if(Vector3.Dot(moveDirection, prevDirection) <= 0.0f)
             keyInputTime = 0;
         else
-            keyInputTime += Time.deltaTime;         
+            keyInputTime += Time.deltaTime;
+        prevDirection = moveDirection;         
     }
-    void Move()
+    private void Move()
     {
         if(SetDirection())
         {
             CheckSameDirection();
-
             if(keyInputTime <= timeNeedtoRun)
                 transform.Translate(moveDirection * velocityWalk * Time.deltaTime);
             else
                 transform.Translate(moveDirection * velocityRun * Time.deltaTime);
             
             //Dog.GetComponent<TrackPlayer>().Track();
-            prevDirection = moveDirection;
         }
     }
 }
