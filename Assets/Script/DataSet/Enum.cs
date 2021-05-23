@@ -8,5 +8,15 @@ public enum SceneName
 public enum ParsingDataSet
 {
     Dialogue,
-    
+
+}
+public enum UIList
+{
+    LobbyUI,
+    OnOffMenuUI,
+    CollectionUI,
+    OptionUI,
+    StateUI,
+    MapUI,
+    PopUpUI,
 }
