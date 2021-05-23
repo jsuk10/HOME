@@ -53,7 +53,7 @@ namespace GameData
 
         #region Callbacks
 
-        public override void init()
+        public override void Init()
         {
             ReadTable();
         }
