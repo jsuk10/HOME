@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
-
 public class UIManager : Singleton<UIManager>
 {
     public UIMenuClass uiMenu;
@@ -14,7 +12,7 @@ public class UIManager : Singleton<UIManager>
     /// <summary>
     /// 초기화시 유아이 할당해줘야함
     /// </summary>
-    public override void init()
+    public override void Init()
     {
         //딕셔너리에 버튼마다 설정한 타입을 넣어둠.
     }
@@ -35,15 +33,15 @@ public class UIManager : Singleton<UIManager>
     /// </summary>
     private void SetName()
     {
-        for (int i = 0; i < playerName.playerNames.Length; i++)
+        for (int i = 0; i < playerName.playerData.Length; i++)
         {
-            if (playerName.playerNames[i] == null)
+            if (playerName.playerData[i] == null)
             {
                 uiMenu.playerNameText[i].text = "새 데이터 만들기";
             }
             else
             {
-                uiMenu.playerNameText[i].text = playerName.playerNames[i];
+                uiMenu.playerNameText[i].text = playerName.playerData[i].name;
             }
         }
     }
