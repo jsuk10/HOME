@@ -1,0 +1,189 @@
+warning: LF will be replaced by CRLF in Assets/Scenes/Dummy_ji.unity.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in Packages/packages-lock.json.
+The file will have its original line endings in your working directory
+[1mdiff --git a/Assets/Image.meta b/Assets/Image.meta[m
+[1mdeleted file mode 100644[m
+[1mindex e27b26a..0000000[m
+[1m--- a/Assets/Image.meta[m
+[1m+++ /dev/null[m
+[36m@@ -1,8 +0,0 @@[m
+[31m-fileFormatVersion: 2[m
+[31m-guid: 90dea978b1c77c7479a4877c19320f0a[m
+[31m-folderAsset: yes[m
+[31m-DefaultImporter:[m
+[31m-  externalObjects: {}[m
+[31m-  userData: [m
+[31m-  assetBundleName: [m
+[31m-  assetBundleVariant: [m
+[1mdiff --git a/Assets/Scenes/Dummy_ji.unity b/Assets/Scenes/Dummy_ji.unity[m
+[1mindex 6464bec..544ab24 100644[m
+[1m--- a/Assets/Scenes/Dummy_ji.unity[m
+[1m+++ b/Assets/Scenes/Dummy_ji.unity[m
+[36m@@ -121,6 +121,288 @@[m [mNavMeshSettings:[m
+     debug:[m
+       m_Flags: 0[m
+   m_NavMeshData: {fileID: 0}[m
+[32m+[m[32m--- !u!1 &390327345[m
+[32m+[m[32mGameObject:[m
+[32m+[m[32m  m_ObjectHideFlags: 0[m
+[32m+[m[32m  m_CorrespondingSourceObject: {fileID: 0}[m
+[32m+[m[32m  m_PrefabInstance: {fileID: 0}[m
+[32m+[m[32m  m_PrefabAsset: {fileID: 0}[m
+[32m+[m[32m  serializedVersion: 6[m
+[32m+[m[32m  m_Component:[m
+[32m+[m[32m  - component: {fileID: 390327349}[m
+[32m+[m[32m  - component: {fileID: 390327348}[m
+[32m+[m[32m  - component: {fileID: 390327347}[m
+[32m+[m[32m  - component: {fileID: 390327346}[m
+[32m+[m[32m  m_Layer: 0[m
+[32m+[m[32m  m_Name: Plane[m
+[32m+[m[32m  m_TagString: Untagged[m
+[32m+[m[32m  m_Icon: {fileID: 0}[m
+[32m+[m[32m  m_NavMeshLayer: 0[m
+[32m+[m[32m  m_StaticEditorFlags: 0[m
+[32m+[m[32m  m_IsActive: 1[m
+[32m+[m[32m--- !u!64 &390327346[m
+[32m+[m[32mMeshCollider:[m
+[32m+[m[32m  m_ObjectHideFlags: 0[m
+[32m+[m[32m  m_CorrespondingSourceObject: {fileID: 0}[m
+[32m+[m[32m  m_PrefabInstance: {fileID: 0}[m
+[32m+[m[32m  m_PrefabAsset: {fileID: 0}[m
+[32m+[m[32m  m_GameObject: {fileID: 390327345}[m
+[32m+[m[32m  m_Material: {fileID: 0}[m
+[32m+[m[32m  m_IsTrigger: 0[m
+[32m+[m[32m  m_Enabled: 1[m
+[32m+[m[32m  serializedVersion: 4[m
+[32m+[m[32m  m_Convex: 0[m
+[32m+[m[32m  m_CookingOptions: 30[m
+[32m+[m[32m  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}[m
+[32m+[m[32m--- !u!23 &390327347[m
+[32m+[m[32mMeshRenderer:[m
+[32m+[m[32m  m_ObjectHideFlags: 0[m
+[32m+[m[32m  m_CorrespondingSourceObject: {fileID: 0}[m
+[32m+[m[32m  m_PrefabInstance: {fileID: 0}[m
+[32m+[m[32m  m_PrefabAsset: {fileID: 0}[m
+[32m+[m[32m  m_GameObject: {fileID: 390327345}[m
+[32m+[m[32m  m_Enabled: 1[m
+[32m+[m[32m  m_CastShadows: 1[m
+[32m+[m[32m  m_ReceiveShadows: 1[m
+[32m+[m[32m  m_DynamicOccludee: 1[m
+[32m+[m[32m  m_MotionVectors: 1[m
+[32m+[m[32m  m_LightProbeUsage: 1[m
+[32m+[m[32m  m_ReflectionProbeUsage: 1[m
+[32m+[m[32m  m_RayTracingMode: 2[m
+[32m+[m[32m  m_RenderingLayerMask: 1[m
+[32m+[m[32m  m_RendererPriority: 0[m
+[32m+[m[32m  m_Materials:[m
+[32m+[m[32m  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}[m
+[32m+[m[32m  m_StaticBatchInfo:[m
+[32m+[m[32m    firstSubMesh: 0[m
+[32m+[m[32m    subMeshCount: 0[m
+[32m+[m[32m  m_StaticBatchRoot: {fileID: 0}[m
+[32m+[m[32m  m_ProbeAnchor: {fileID: 0}[m
+[32m+[m[32m  m_LightProbeVolumeOverride: {fileID: 0}[m
+[32m+[m[32m  m_ScaleInLightmap: 1[m
+[32m+[m[32m  m_ReceiveGI: 1[m
+[32m+[m[32m  m_PreserveUVs: 0[m
+[32m+[m[32m  m_IgnoreNormalsForChartDetection: 0[m
+[32m+[m[32m  m_ImportantGI: 0[m
+[32m+[m[32m  m_StitchLightmapSeams: 1[m
+[32m+[m[32m  m_SelectedEditorRenderState: 3[m
+[32m+[m[32m  m_MinimumChartSize: 4[m
+[32m+[m[32m  m_AutoUVMaxDistance: 0.5[m
+[32m+[m[32m  m_AutoUVMaxAngle: 89[m
+[32m+[m[32m  m_LightmapParameters: {fileID: 0}[m
+[32m+[m[32m  m_SortingLayerID: 0[m
+[32m+[m[32m  m_SortingLayer: 0[m
+[32m+[m[32m  m_SortingOrder: 0[m
+[32m+[m[32m--- !u!33 &390327348[m
+[32m+[m[32mMeshFilter:[m
+[32m+[m[32m  m_ObjectHideFlags: 0[m
+[32m+[m[32m  m_CorrespondingSourceObject: {fileID: 0}[m
+[32m+[m[32m  m_PrefabInstance: {fileID: 0}[m
+[32m+[m[32m  m_PrefabAsset: {fileID: 0}[m
+[32m+[m[32m  m_GameObject: {fileID: 390327345}[m
+[32m+[m[32m  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}[m
+[32m+[m[32m--- !u!4 &390327349[m
+[32m+[m[32mTransform:[m
+[32m+[m[32m  m_ObjectHideFlags: 0[m
+[32m+[m[32m  m_CorrespondingSourceObject: {fileID: 0}[m
+[32m+[m[32m  m_PrefabInstance: {fileID: 0}[m
+[32m+[m[32m  m_PrefabAsset: {fileID: 0}[m
+[32m+[m[32m  m_GameObject: {fileID: 390327345}[m
+[32m+[m[32m  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}[m
+[32m+[m[32m  m_LocalPosition: {x: 0, y: 0, z: 0}[m
+[32m+[m[32m  m_LocalScale: {x: 3, y: 1, z: 1}[m
+[32m+[m[32m  m_Children: [][m
+[32m+[m[32m  m_Father: {fileID: 0}[m
+[32m+[m[32m  m_RootOrder: 3[m
+[32m+[m[32m  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}[m
+[32m+[m[32m--- !u!1 &470600353[m
+[32m+[m[32mGameObject:[m
+[32m+[m[32m  m_ObjectHideFlags: 0[m
+[32m+[m[32m  m_CorrespondingSourceObject: {fileID: 0}[m
+[32m+[m[32m  m_PrefabInstance: {fileID: 0}[m
+[32m+[m[32m  m_PrefabAsset: {fileID: 0}[m
+[32m+[m[32m  serializedVersion: 6[m
+[32m+[m[32m  m_Component:[m
+[32m+[m[32m  - component: {fileID: 470600357}[m
+[32m+[m[32m  - component: {fileID: 470600356}[m
+[32m+[m[32m  - component: {fileID: 470600355}[m
+[32m+[m[32m  - component: {fileID: 470600354}[m
+[32m+[m[32m  - component: {fileID: 470600358}[m
+[32m+[m[32m  m_Layer: 0[m
+[32m+[m[32m  m_Name: Player[m
+[32m+[m[32m  m_TagString: Untagged[m
+[32m+[m[32m  m_Icon: {fileID: 0}[m
+[32m+[m[32m  m_NavMeshLayer: 0[m
+[32m+[m[32m  m_StaticEditorFlags: 0[m
+[32m+[m[32m  m_IsActive: 1[m
+[32m+[m[32m--- !u!135 &470600354[m
+[32m+[m[32mSphereCollider:[m
+[32m+[m[32m  m_ObjectHideFlags: 0[m
+[32m+[m[32m  m_CorrespondingSourceObject: {fileID: 0}[m
+[32m+[m[32m  m_PrefabInstance: {fileID: 0}[m
+[32m+[m[32m  m_PrefabAsset: {fileID: 0}[m
+[32m+[m[32m  m_GameObject: {fileID: 470600353}[m
+[32m+[m[32m  m_Material: {fileID: 0}[m
+[32m+[m[32m  m_IsTrigger: 0[m
+[32m+[m[32m  m_Enabled: 1[m
+[32m+[m[32m  serializedVersion: 2[m
+[32m+[m[32m  m_Radius: 0.5[m
+[32m+[m[32m  m_Center: {x: 0, y: 0, z: 0}[m
+[32m+[m[32m--- !u!23 &470600355[m
+[32m+[m[32mMeshRenderer:[m
+[32m+[m[32m  m_ObjectHideFlags: 0[m
+[32m+[m[32m  m_CorrespondingSourceObject: {fileID: 0}[m
+[32m+[m[32m  m_PrefabInstance: {fileID: 0}[m
+[32m+[m[32m  m_PrefabAsset: {fileID: 0}[m
+[32m+[m[32m  m_GameObject: {fileID: 470600353}[m
+[32m+[m[32m  m_Enabled: 1[m
+[32m+[m[32m  m_CastShadows: 1[m
+[32m+[m[32m  m_ReceiveShadows: 1[m
+[32m+[m[32m  m_DynamicOccludee: 1[m
+[32m+[m[32m  m_MotionVectors: 1[m
+[32m+[m[32m  m_LightProbeUsage: 1[m
+[32m+[m[32m  m_ReflectionProbeUsage: 1[m
+[32m+[m[32m  m_RayTracingMode: 2[m
+[32m+[m[32m  m_RenderingLayerMask: 1[m
+[32m+[m[32m  m_RendererPriority: 0[m
+[32m+[m[32m  m_Materials:[m
+[32m+[m[32m  - {fileID: 2100000, guid: 6026a99959421be49a900fe30b67483d, type: 2}[m
+[32m+[m[32m  m_StaticBatchInfo:[m
+[32m+[m[32m    firstSubMesh: 0[m
+[32m+[m[32m    subMeshCount: 0[m
+[32m+[m[32m  m_StaticBatchRoot: {fileID: 0}[m
+[32m+[m[32m  m_ProbeAnchor: {fileID: 0}[m
+[32m+[m[32m  m_LightProbeVolumeOverride: {fileID: 0}[m
+[32m+[m[32m  m_ScaleInLightmap: 1[m
+[32m+[m[32m  m_ReceiveGI: 1[m
+[32m+[m[32m  m_PreserveUVs: 0[m
+[32m+[m[32m  m_IgnoreNormalsForChartDetection: 0[m
+[32m+[m[32m  m_ImportantGI: 0[m
+[32m+[m[32m  m_StitchLightmapSeams: 1[m
+[32m+[m[32m  m_SelectedEditorRenderState: 3[m
+[32m+[m[32m  m_MinimumChartSize: 4[m
+[32m+[m[32m  m_AutoUVMaxDistance: 0.5[m
+[32m+[m[32m  m_AutoUVMaxAngle: 89[m
+[32m+[m[32m  m_LightmapParameters: {fileID: 0
