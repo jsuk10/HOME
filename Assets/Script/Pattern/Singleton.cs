@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface ISingleton
 {
-    void init();
+    void Init();
 }
 
 public abstract class Singleton<T> : MonoBehaviour, ISingleton where T : Singleton<T>
@@ -13,7 +13,7 @@ public abstract class Singleton<T> : MonoBehaviour, ISingleton where T : Singlet
     /// 싱글톤에서 초기화를 해야 할 부분을 적어둠
     /// awake에서 실행하게 했음
     /// </summary>
-    public abstract void init();
+    public abstract void Init();
 
     protected static T _instance;
 
@@ -31,7 +31,7 @@ public abstract class Singleton<T> : MonoBehaviour, ISingleton where T : Singlet
 
         var _singleton = _instance as Singleton<T>;
 
-        _singleton.init();
+        _singleton.Init();
 
         return _instance;
     }
@@ -39,8 +39,6 @@ public abstract class Singleton<T> : MonoBehaviour, ISingleton where T : Singlet
     protected void Awake()
     {
         _instance = GetInstanceObject();
-
     }
-
 
 }
