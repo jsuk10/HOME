@@ -14,8 +14,9 @@ public class PlayerData : Singleton<PlayerData>
         get { return playerName; }
     }
 
-    public override void init()
+    public override void Init()
     {
+        DontDestroyOnLoad(this);
         SetDirectory();
         LoadPlayerData();
     }
@@ -57,13 +58,14 @@ public class PlayerData : Singleton<PlayerData>
                 playerName = new PlayerNameClass();
             }
 
-            for (int i = 0; i < playerName.playerNames.Length; i++)
+            for (int i = 0; i < playerName.playerData.Length; i++)
             {
-                if (playerName.playerNames[i] == "")
+                if (playerName.playerData[i].name == "" || playerName.playerData[i].name == null)
                 {
-                    playerName.playerNames[i] = null;
+                    playerName.playerData[i].name = null;
                 }
             }
         }
     }
+
 }

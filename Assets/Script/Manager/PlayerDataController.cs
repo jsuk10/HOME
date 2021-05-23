@@ -6,7 +6,6 @@ using System.IO;
 public class PlayerDataController : Singleton<PlayerDataController>
 {
     private PlayerDataClass playerData;
-    [SerializeField]
     private string saveDirectory;
     private string playerName;
     public string PlayerName
@@ -15,10 +14,11 @@ public class PlayerDataController : Singleton<PlayerDataController>
         set { playerName = value; }
     }
 
-    public override void init()
+    public override void Init()
     {
         DontDestroyOnLoad(this.gameObject);
         MakeDirectory();
+        LoadPlayerData();
     }
 
     /// <summary>
@@ -53,9 +53,15 @@ public class PlayerDataController : Singleton<PlayerDataController>
     public void LoadPlayerData()
     {
         string savePath = Path.Combine(saveDirectory, playerName + "Data.json");
-        string data = File.ReadAllText(savePath);
-        playerData = JsonUtility.FromJson<PlayerDataClass>(data);
-    }
+        FileInfo fi = new FileInfo(savePath);
+        // if(new FileInfo(savePath))
+        if (fi.Exists)
+        {
+            playerData = JsonUtility.FromJson<PlayerDataClass>(File.ReadAllText(savePath));
+        }
+        else
+            playerData = new PlayerDataClass();
 
+    }
 
 }
