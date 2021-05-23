@@ -9,12 +9,20 @@ public interface ISingleton
 
 public abstract class Singleton<T> : MonoBehaviour, ISingleton where T : Singleton<T>
 {
+    /// <summary>
+    /// 싱글톤에서 초기화를 해야 할 부분을 적어둠
+    /// awake에서 실행하게 했음
+    /// </summary>
     public abstract void init();
 
     protected static T _instance;
 
     public static T Instance => _instance != null ? _instance : GetInstanceObject();
 
+    /// <summary>
+    /// 싱글톤을 만들어주고 instance 반환하는 함수
+    /// awake에서 실행되게 하였으며 있을경우 재실행 안됨
+    /// </summary>
     protected static T GetInstanceObject()
     {
         if (_instance != null) return _instance;
@@ -31,6 +39,8 @@ public abstract class Singleton<T> : MonoBehaviour, ISingleton where T : Singlet
     protected void Awake()
     {
         _instance = GetInstanceObject();
+
     }
+
 
 }
