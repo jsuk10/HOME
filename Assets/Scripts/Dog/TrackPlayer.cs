@@ -5,8 +5,8 @@ using UnityEngine;
 public class TrackPlayer : MonoBehaviour
 {
     private float velocity = 4f;
-    private float limitDistance = 8.0f;
-    private float padding = 1f;
+    private float limitDistance = 5.0f;
+    private float padding = 0.5f;
 
     [SerializeField]
     private GameObject Player;
