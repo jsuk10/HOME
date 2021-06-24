@@ -9,6 +9,21 @@ public class Collection
 }
 
 [System.Serializable]
+public class Dialogue
+{
+    public string name;
+    public List<string> sentence;
+}
+
+[System.Serializable]
+public class DialogueEvent
+{
+    public string eventName;
+    public Vector2 line;
+    public List<Dialogue> dialogues;
+}
+
+[System.Serializable]
 public class PlayerDataClass
 {
     public string name;
