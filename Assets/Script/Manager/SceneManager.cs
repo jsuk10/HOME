@@ -6,11 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class SceneManager : Singleton<SceneManager>
 {
+    #region InheritanceFunction
     public override void Init()
     {
         DontDestroyOnLoad(gameObject);
     }
+    #endregion
 
+    #region Function
     /// <summary>
     /// 신 옮겨주는 함
     /// </summary>
@@ -19,4 +22,5 @@ public class SceneManager : Singleton<SceneManager>
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName.ToString());
     }
+    #endregion
 }

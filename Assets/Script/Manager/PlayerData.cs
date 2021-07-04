@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
+/// <summary>
+/// 플레이어 데이터 하나를 관리해주는 스크립트
+/// </summary>
+
 public class PlayerData : Singleton<PlayerData>
 {
+    #region field
     private string saveDirectory;
     [SerializeField]
     private PlayerNameClass playerName;
@@ -13,13 +18,18 @@ public class PlayerData : Singleton<PlayerData>
     {
         get { return playerName; }
     }
+    #endregion
 
+    #region InheritanceFunction
     public override void Init()
     {
         DontDestroyOnLoad(this);
         SetDirectory();
         LoadPlayerData();
     }
+    #endregion
+
+    #region Function
 
     private void SetDirectory()
     {
@@ -67,5 +77,5 @@ public class PlayerData : Singleton<PlayerData>
             }
         }
     }
-
+    #endregion
 }

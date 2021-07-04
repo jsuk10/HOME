@@ -3,8 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
+
+/// <summary>
+/// 플레이어들의 데이터를 관리해주는 스크립트
+/// 차후에 제거 해도 될거 같음 물어볼것.
+/// </summary>
 public class PlayerDataController : Singleton<PlayerDataController>
 {
+    #region Field
     private PlayerDataClass playerData;
     private string saveDirectory;
     private string playerName;
@@ -13,14 +19,18 @@ public class PlayerDataController : Singleton<PlayerDataController>
         get { return playerName; }
         set { playerName = value; }
     }
+    #endregion
 
+    #region InheritanceFunction
     public override void Init()
     {
         DontDestroyOnLoad(this.gameObject);
         MakeDirectory();
         LoadPlayerData();
     }
+    #endregion
 
+    #region Function
     /// <summary>
     /// 경로를 만들어주는 메소드
     /// 지정된 없을시 경로를 만들고 만들어줌
@@ -63,5 +73,5 @@ public class PlayerDataController : Singleton<PlayerDataController>
             playerData = new PlayerDataClass();
 
     }
-
+    #endregion
 }

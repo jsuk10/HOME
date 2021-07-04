@@ -6,9 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : Singleton<UIManager>
 {
+    #region field
     public UIMenuClass uiMenu;
     private PlayerNameClass playerName;
+    #endregion
 
+    #region InheritanceFunction
     /// <summary>
     /// 초기화시 유아이 할당해줘야함
     /// </summary>
@@ -16,7 +19,9 @@ public class UIManager : Singleton<UIManager>
     {
         //딕셔너리에 버튼마다 설정한 타입을 넣어둠.
     }
+    #endregion
 
+    #region UnityCycle
     /// <summary>
     /// 플레이어 이름들을 가지고 오는 클래스
     /// </summary>
@@ -27,7 +32,9 @@ public class UIManager : Singleton<UIManager>
         SetName();
         OffMenu();
     }
+    #endregion
 
+    #region Function
     /// <summary>
     /// 데이터를 불러와서 세팅해놓는 함수
     /// </summary>
@@ -45,6 +52,8 @@ public class UIManager : Singleton<UIManager>
             }
         }
     }
+    #endregion
+
 
     #region UIOnOff
     /// <summary>
@@ -93,4 +102,5 @@ public class UIManager : Singleton<UIManager>
 #endif
     }
     #endregion
+
 }

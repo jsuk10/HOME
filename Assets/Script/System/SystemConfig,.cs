@@ -17,18 +17,18 @@ namespace GameData
         private const char ListRecordParser = ',';
 
         #endregion
-        private static Dictionary<Type, Func<string, object>> DecodeByBaseCollection =
-            new Dictionary<Type, Func<string, object>>
+        private static System.Collections.Generic.Dictionary<Type, Func<string, object>> DecodeByBaseCollection =
+            new System.Collections.Generic.Dictionary<Type, Func<string, object>>
             {
                 {typeof(string), (valueString) => valueString},
                 {typeof(byte), (valueString) => ChangeType<byte>(valueString)},
                 {typeof(sbyte), (valueString) => ChangeType<sbyte>(valueString)},
-                {typeof(Int16), (valueString) => ChangeType<Int16>(valueString)},
-                {typeof(Int32), (valueString) => ChangeType<Int32>(valueString)},
-                {typeof(Int64), (valueString) => ChangeType<Int64>(valueString)},
-                {typeof(UInt16), (valueString) => ChangeType<UInt16>(valueString)},
-                {typeof(UInt32), (valueString) => ChangeType<UInt32>(valueString)},
-                {typeof(UInt64), (valueString) => ChangeType<UInt64>(valueString)},
+                {typeof(Int16), (valueString) => ChangeType<short>(valueString)},
+                {typeof(Int32), (valueString) => ChangeType<int>(valueString)},
+                {typeof(Int64), (valueString) => ChangeType<long>(valueString)},
+                {typeof(UInt16), (valueString) => ChangeType<ushort>(valueString)},
+                {typeof(UInt32), (valueString) => ChangeType<uint>(valueString)},
+                {typeof(UInt64), (valueString) => ChangeType<ulong>(valueString)},
                 {typeof(float), (valueString) => ChangeType<float>(valueString)},
                 {typeof(double), (valueString) => ChangeType<double>(valueString)},
                 {typeof(bool), (valueString) => ChangeType<bool>(valueString)},
