@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace GameData
 {
+    /// <summary>
+    /// 다이어 로그를 전부 들고있는 사전 클래스
+    /// </summary>
     public class DialogueData : Data<DialogueData, DialogueData.DialogueDataClass>
     {
         //이름 설정 및 테이블 제작
@@ -18,10 +21,10 @@ namespace GameData
         /// </summary>
         public class DialogueDataClass : DataClass
         {
-            public string dialogue;
             /// <summary>말하는 주체 </summary> 
-            public string name;
+            public string dialogue;
             /// <summary> 말 </summary>
+            public string name;
         }
     }
 }

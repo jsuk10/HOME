@@ -8,6 +8,7 @@ public enum SceneName
 public enum ParsingDataSet
 {
     Dialogue,
+    EventDialog,
 
 }
 public enum UIList
