@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TrackPlayer : MonoBehaviour
 {
-    private float velocity = 4f;
-    private float limitDistance = 8.0f;
-    private float padding = 0.5f;
+    private float velocity = 5f;
+    private float limitDistance = 10.0f;
+    private float padding = 1f;
 
     [SerializeField]
     private GameObject Player;
@@ -25,6 +25,7 @@ public class TrackPlayer : MonoBehaviour
         vectorToPlayer = Player.transform.position - this.transform.position;
         distanceToPlayer = vectorToPlayer.magnitude;
         vectorToPlayer.Normalize();
+        //vectorToPlayer.z = Player.transform.position.z;
 
         if(distanceToPlayer <= limitDistance - padding)
         {
