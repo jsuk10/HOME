@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractionPlayer : MonoBehaviour
+public class InteractionPlayer : Singleton<InteractionPlayer>
 {
     Queue<ObjectInteractable> queueObject;
 
-    void Awake()
+    public override void init()
     {
         queueObject = new Queue<ObjectInteractable>();
     } 
 
+    
     void Update()
     {
         InputProcess();
