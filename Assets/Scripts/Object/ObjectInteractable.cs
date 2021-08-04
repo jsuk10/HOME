@@ -7,7 +7,6 @@ using UnityEngine;
 /// </summary>
 public class ObjectInteractable : MonoBehaviour
 {
-    public InteractionPlayer Player;
     bool isEnqueued = false;
     public bool IsEnqueued
     {
@@ -34,8 +33,7 @@ public class ObjectInteractable : MonoBehaviour
             if(isEnqueued == false)
             {
                 isEnqueued = true;
-                var player = other.gameObject.GetComponent<InteractionPlayer>();
-                player.EnqueueObject(this);
+                InteractionPlayer.Instance.EnqueueObject(this);
             }
         }
     }
@@ -50,8 +48,7 @@ public class ObjectInteractable : MonoBehaviour
         Debug.Log(gameObject.transform.parent.gameObject.name + " Exit");
         if(other.tag == "Player")
         {
-            var player = other.gameObject.GetComponent<InteractionPlayer>();
-            player.DequeueObject();
+            InteractionPlayer.Instance.DequeueObject();
             isEnqueued = false;
         }
     }
