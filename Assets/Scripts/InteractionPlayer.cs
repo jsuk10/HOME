@@ -6,7 +6,7 @@ public class InteractionPlayer : Singleton<InteractionPlayer>
 {
     List<ObjectInteractable> listObject;
 
-    public override void init()
+    public override void Init()
     {
         listObject = new List<ObjectInteractable>();
     } 
