@@ -67,12 +67,12 @@ public class LobbyController : AddUIEvent
     private void MakeNewData()
     {
         //데이터 생성
-        LoadScene(SceneName.inGame);
+        //LoadScene(SceneName.inGame);
     }
     private void LoadData()
     {
         //데이터 할당
-        LoadScene(SceneName.inGame);
+        //LoadScene(SceneName.inGame);
     }
 
 

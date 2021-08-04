@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class LobbyManager : Singleton<LobbyManager>
 {
     #region field
-    public System.Collections.Generic.Dictionary<UIList, AddUIEvent> UIListDirctionary = new System.Collections.Generic.Dictionary<UIList, AddUIEvent>();
-    public System.Collections.Generic.Dictionary<string, GameObject> ObjectDirctory = new System.Collections.Generic.Dictionary<string, GameObject>();
+    public Dictionary<UIList, AddUIEvent> UIListDirctionary = new Dictionary<UIList, AddUIEvent>();
+    public Dictionary<string, GameObject> ObjectDirctory = new Dictionary<string, GameObject>();
     #endregion
 
     #region InheritanceFunction

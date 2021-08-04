@@ -70,7 +70,7 @@ public class AddUIEvent : MonoBehaviour
     /// <param name="sceneName">씬의 이름 단. Enum의 SceneName에 등록된것으로 한정되</param>
     protected void LoadScene(Stage sceneName)
     {
-        SceneManager.Instance.LoadScene(sceneName.toString());
+        SceneManager.Instance.LoadScene(sceneName);
     }
     #endregion
 
