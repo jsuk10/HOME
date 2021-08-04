@@ -12,8 +12,8 @@ public class DialogueManager : Singleton<DialogueManager>
     private bool isTyping = false;
     private IEnumerator typing;
 
-    private GameData.DialogueData.DialogueDataClass dialogue;
-    private Queue<GameData.DialogueData.DialogueDataClass> dialogueQueue = new Queue<GameData.DialogueData.DialogueDataClass>();
+    private DialogueData.DialogueDataClass dialogue;
+    private Queue<DialogueData.DialogueDataClass> dialogueQueue = new Queue<DialogueData.DialogueDataClass>();
     #endregion
 
     #region InheritanceFunction
@@ -71,7 +71,6 @@ public class DialogueManager : Singleton<DialogueManager>
     public void Next()
     {
         Debug.Log("next");
-        
         if (isTyping == true)
         {
             StopCoroutine(typing);
@@ -83,6 +82,8 @@ public class DialogueManager : Singleton<DialogueManager>
         else
         {
             AttachDialog(dialogue.name);
+            if(!string.IsNullOrEmpty(dialogue.sfxSound))
+                SoundManager.Instance.SFXPlayer(dialogue.sfxSound);
             target.text = string.Empty;
             typing = TypeSentance();
             StartCoroutine(typing);
@@ -93,7 +94,7 @@ public class DialogueManager : Singleton<DialogueManager>
             return;
         }
     }
-
+    
 
     /// <summary>
     /// 끝났음을 알려주는 스크립트
@@ -107,7 +108,6 @@ public class DialogueManager : Singleton<DialogueManager>
     /// 하나씩 출력해주는 함수
     /// </summary>
     IEnumerator TypeSentance() {
-        //타다닥 소리 넣어주면 좋을듯
         isTyping = true;
         foreach (var letter in dialogue.dialogue) {
             target.text += letter;
