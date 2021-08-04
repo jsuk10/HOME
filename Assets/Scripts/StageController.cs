@@ -9,10 +9,11 @@ using UnityEngine;
 /// </summary>
 class Stage
 {
-    public Stage(GameObject VCam, GameObject Door)
+    public Stage(GameObject VCam, GameObject Door, GameObject Position)
     {
         vCam = VCam;
         door = Door;
+        position = Position;
     }
     GameObject vCam;
     public GameObject VCam
@@ -32,6 +33,16 @@ class Stage
             return door;
         }
     }
+
+    GameObject position;
+    
+    public GameObject Position
+    {
+        get
+        {
+            return position;
+        }
+    }
 }
 
 /// <summary>
@@ -39,7 +50,7 @@ class Stage
 /// </summary>
 public class StageController : MonoBehaviour
 {
-
+    public GameObject player;
     public static StageController instance;
     List<Stage> listStage;
     void Awake()
@@ -54,7 +65,8 @@ public class StageController : MonoBehaviour
             listStage.Add(
                 new Stage(
                     childGO.transform.Find("VCam").gameObject, 
-                    childGO.transform.Find("Background").Find("Door").gameObject));
+                    childGO.transform.Find("Background").Find("Door").gameObject,
+                    childGO.transform.Find("Position").gameObject));
         }
             
     }
@@ -68,6 +80,8 @@ public class StageController : MonoBehaviour
 
         foreach(Stage stage in listStage)
             stage.VCam.SetActive(false);
+        player.transform.position = curStage.Position.transform.Find("Player").position;
+
         curStage.VCam.SetActive(true);
     }
 }
