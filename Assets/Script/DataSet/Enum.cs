@@ -21,3 +21,14 @@ public enum UIList
     MapUI,
     PopUpUI,
 }
+
+public enum Stage {
+    lobby,
+    kitchen,
+    yard,
+    road,
+    Park,
+    forest,
+    Cliff,
+    epilogue
+}
