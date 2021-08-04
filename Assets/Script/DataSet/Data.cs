@@ -1,26 +1,20 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using System.Text;
+using GameData;
 using UnityEngine;
+//Read로 읽어온 이후 LoadTable로 가지치기 한다.
 
-namespace GameData
-{
-    //Read로 읽어온 이후 LoadTable로 가지치기 한다.
-
-    /// <summary>
-    /// Data(T)를 지정해주고 세팅해줘야함
-    /// singleton으로 구현되어있고 
-    /// OnInitiate에서 SetDictionary를 반드시 사용해야함.
-    /// </summary>
-    /// <typeparam name="T"> 하위클래스에서 구현한 추상 클래스</typeparam>
-    public abstract class Data<K, T> : NonUnitySingleton<K> where T : Data<K, T>.DataClass, new()
-        where K : Data<K, T>, new()
-    {
+/// <summary>
+/// Data(T)를 지정해주고 세팅해줘야함 
+/// singleton으로 구현되어있고 
+/// OnInitiate에서 SetDictionary를 반드시 사용해야함.
+/// </summary>
+/// <typeparam name="T"> 하위클래스에서 구현한 추상 클래스</typeparam>
+public abstract class Data<K, T> : NonUnitySingleton<K> where T : Data<K, T>.DataClass, new()
+        where K : Data<K, T>, new(){
         #region Fields
-
+    
         //위부터 구분자, 줄바꿈, 앞뒤로 없애는 문자 ("")
         static string SPLIT_RE = ",";
         static string LINE_SPLIT_RE = "\n";
@@ -35,9 +29,10 @@ namespace GameData
         /// <summary>
         /// 파일 이름을 추가할 경우 ParsingDataSet에 Enum을 추가한 뒤에 추가한다
         /// string로 줄 경우 실패할 가능성이 크기 때문에 미리정해진 값중 하나를 사용하도록 만들었다.
-        ///  = ParsingDataSet.MonsterData등으로 사용할것
+        ///  = ParsingDataSet.Dialog 사용할것
         /// </summary>
         protected static ParsingDataSet fileName;
+    
 
         #endregion
 
@@ -103,7 +98,7 @@ namespace GameData
                     string value = values[j];
                     if (value == string.Empty)
                         continue;
-                    value = value.TrimStart(TRIM_CHARS).TrimEnd(TRIM_CHARS).Replace("'", ",").Replace("+", "\n");
+                    value = value.TrimStart(TRIM_CHARS).TrimEnd(TRIM_CHARS).Replace("`", ",").Replace("+", "\n");
                     entry[header[j]] = value;
                     if (!list.ContainsKey(key))
                         list.Add(key, entry);
@@ -182,5 +177,4 @@ namespace GameData
 
 
         #endregion
-    }
 }
