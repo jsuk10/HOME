@@ -37,7 +37,7 @@ public class SoundManager : Singleton<SoundManager>
         {
             backGroundAudioClipDirctionary.Add(backGorundMusicClipFiles[i].name, backGorundMusicClipFiles[i]);
         }
-        PlayBackGroundSound(Stage.kitchen);
+        PlayBackGroundSound(Stage.Kitchen);
     }
 
     /// <summary>
@@ -57,10 +57,8 @@ public class SoundManager : Singleton<SoundManager>
     {
         audioMixer.SetFloat("SFX", Mathf.Log10(vol) * 20);
     }
-    [ContextMenu("SFXPlayer")]
-    public void TestFunction() {
-        SFXPlayer("open");
-    }
+
+    
 
     /// <summary>
     /// 효과음 파일의 이름을 넣어주면 재생해주는 스크립트

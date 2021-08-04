@@ -21,11 +21,11 @@ namespace GameData
         /// </summary>
         public class DialogueDataClass : DataClass
         {
-            /// <summary> 말하는 주체 </summary> 
+            /// <summary> 말(텍스트) </summary>
             public string dialogue;
-            /// <summary> 말 </summary>
+            /// <summary> 말하는 주체 </summary> 
             public string name;
-            /// <summary> 사운드의 이름  </summary>
+            /// <summary> sfx 사운드의 파일명</summary>
             public string sfxSound;
         }
     }
