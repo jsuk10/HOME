@@ -33,7 +33,7 @@ public class ObjectInteractable : MonoBehaviour
             if(isEnqueued == false)
             {
                 isEnqueued = true;
-                InteractionPlayer.Instance.EnqueueObject(this);
+                InteractionPlayer.Instance.AddObject(this);
             }
         }
     }
@@ -48,7 +48,7 @@ public class ObjectInteractable : MonoBehaviour
         Debug.Log(gameObject.transform.parent.gameObject.name + " Exit");
         if(other.tag == "Player")
         {
-            InteractionPlayer.Instance.DequeueObject();
+            InteractionPlayer.Instance.PopObject(this);
             isEnqueued = false;
         }
     }
