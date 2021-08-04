@@ -3,49 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 스테이지의 주요정보를 담고 있는 클래스 
-/// VCam = 시네머신 가상 카메라
-/// Door = 스테이지의 문
-/// </summary>
-class Stage
-{
-    public Stage(GameObject VCam, GameObject Door, GameObject Position)
-    {
-        vCam = VCam;
-        door = Door;
-        position = Position;
-    }
-    GameObject vCam;
-    public GameObject VCam
-    {
-        get
-        {
-            return vCam;
-        }
-    }
-
-    GameObject door;
-
-    public GameObject Door
-    {
-        get
-        {
-            return door;
-        }
-    }
-
-    GameObject position;
-    
-    public GameObject Position
-    {
-        get
-        {
-            return position;
-        }
-    }
-}
-
-/// <summary>
 /// Stage와 관련된 이벤트들을 처리하는 스크립트, Awake에서 Stage의 정보를 담은 
 /// </summary>
 public class StageController : MonoBehaviour
