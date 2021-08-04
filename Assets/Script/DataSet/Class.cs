@@ -68,9 +68,9 @@ public class UIMenuClass
 /// Door = 스테이지의 문
 /// </summary>
 [System.Serializable]
-public class Stage
+public class StageInfo
 {
-    public Stage(GameObject VCam, GameObject Door, GameObject Position)
+    public StageInfo(GameObject VCam, GameObject Door, GameObject Position)
     {
         vCam = VCam;
         door = Door;
