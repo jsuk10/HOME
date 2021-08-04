@@ -5,7 +5,9 @@ using System.Collections;
 
 public class Loading : MonoBehaviour
 {
-    public Slider slider;
+
+    [SerializeField]
+    private Slider slider;
     [SerializeField]
     private string sceneName;
 

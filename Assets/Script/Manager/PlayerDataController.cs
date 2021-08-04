@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class DataController : Singleton<DataController>
+public class PlayerDataController : Singleton<PlayerDataController>
 {
-    private PlayerData playerData;
-    [SerializeField]
+    private PlayerDataClass playerData;
     private string saveDirectory;
     private string playerName;
     public string PlayerName
@@ -15,12 +14,17 @@ public class DataController : Singleton<DataController>
         set { playerName = value; }
     }
 
-    public override void init()
+    public override void Init()
     {
         DontDestroyOnLoad(this.gameObject);
         MakeDirectory();
+        LoadPlayerData();
     }
 
+    /// <summary>
+    /// 경로를 만들어주는 메소드
+    /// 지정된 없을시 경로를 만들고 만들어줌
+    /// </summary>
     private void MakeDirectory()
     {
         saveDirectory = Path.Combine(Application.persistentDataPath, "playerData");
@@ -31,7 +35,9 @@ public class DataController : Singleton<DataController>
     }
 
 
-
+    /// <summary>
+    /// 플레이어 데이터 자정
+    /// </summary>
     [ContextMenu("To Json Data")]
     public void SavePlayerData()
     {
@@ -40,13 +46,22 @@ public class DataController : Singleton<DataController>
         File.WriteAllText(savePath, jsonData);
     }
 
+    /// <summary>
+    /// 플레이어 데이터 불러오기
+    /// </summary>
     [ContextMenu("Load Data")]
     public void LoadPlayerData()
     {
         string savePath = Path.Combine(saveDirectory, playerName + "Data.json");
-        string data = File.ReadAllText(savePath);
-        playerData = JsonUtility.FromJson<PlayerData>(data);
-    }
+        FileInfo fi = new FileInfo(savePath);
+        // if(new FileInfo(savePath))
+        if (fi.Exists)
+        {
+            playerData = JsonUtility.FromJson<PlayerDataClass>(File.ReadAllText(savePath));
+        }
+        else
+            playerData = new PlayerDataClass();
 
+    }
 
 }
