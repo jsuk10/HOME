@@ -4,33 +4,37 @@ using UnityEngine;
 
 public class InteractionPlayer : Singleton<InteractionPlayer>
 {
-    Queue<ObjectInteractable> queueObject;
+    List<ObjectInteractable> listObject;
 
     public override void init()
     {
-        queueObject = new Queue<ObjectInteractable>();
+        listObject = new List<ObjectInteractable>();
     } 
 
     
-    void Update()
+    void Start()
     {
-        InputProcess();
+        StartCoroutine("InputProcess");
     }
 
     /// <summary>
     /// 입력 처리, 상호작용 키를 누르면 큐에서 오브젝트를 반환하여 상호작용 함수 호출
     /// </summary>
-    void InputProcess()
+    public IEnumerator InputProcess()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        while(true)
         {
-            var dequeuedObject = queueObject.Dequeue();
-            if(dequeuedObject != null)
+            if(Input.GetKey(KeyCode.E))
             {
-                dequeuedObject.IsEnqueued = false;
-                dequeuedObject.Interaction();
+                Debug.Log($"{listObject.Count}");
+                if(listObject.Count >= 0)
+                {
+                    var popedObject = PopObject(listObject[0]);
+                    popedObject.Interaction();
+                    popedObject.IsEnqueued = false;
+                }
             }
-        
+            yield return new WaitForSeconds(0.3f);
         }
     }
 
@@ -38,17 +42,21 @@ public class InteractionPlayer : Singleton<InteractionPlayer>
     /// 외부에서 Enqueue할때 쓰는 함수. 충돌 상태일때 오브젝트가 스스로를 삽입 요청
     /// </summary>
     /// <param name="objectInteractable"></param>
-    public void EnqueueObject(ObjectInteractable objectInteractable)
+    public void AddObject(ObjectInteractable objectInteractable)
     {
-        queueObject.Enqueue(objectInteractable);
+        listObject.Add(objectInteractable);
     }
 
     /// <summary>
     /// 외부에서 Dequeue할때 쓰는 함수. 일정 범위를 벗어낫을때 오브젝트가 스스로를 반환 요청
     /// </summary>
     /// <returns></returns>
-    public ObjectInteractable DequeueObject()
+    public ObjectInteractable PopObject(ObjectInteractable objectInteractable)
     {
-        return queueObject.Dequeue();
+        int tempObjectIndex = listObject.FindIndex(x => x == objectInteractable);
+        var tempObject = listObject[tempObjectIndex];
+        listObject.RemoveAt(tempObjectIndex);
+
+        return tempObject;
     }
 }
