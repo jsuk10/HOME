@@ -5,8 +5,12 @@ using UnityEngine.UI;
 
 public class LobbyManager : Singleton<LobbyManager>
 {
-    public Dictionary<UIList, AddUIEvent> UIListDirctionary = new Dictionary<UIList, AddUIEvent>();
-    public Dictionary<string, GameObject> ObjectDirctory = new Dictionary<string, GameObject>();
+    #region field
+    public System.Collections.Generic.Dictionary<UIList, AddUIEvent> UIListDirctionary = new System.Collections.Generic.Dictionary<UIList, AddUIEvent>();
+    public System.Collections.Generic.Dictionary<string, GameObject> ObjectDirctory = new System.Collections.Generic.Dictionary<string, GameObject>();
+    #endregion
+
+    #region InheritanceFunction
     public override void Init()
     {
         AddDictionary(UIList.LobbyUI, "LobbyUI", "LobbyController");
@@ -14,6 +18,9 @@ public class LobbyManager : Singleton<LobbyManager>
         //AddDictionary(UIList.OptionUI, "OptionUI", "LobbyOptionUI");
         //AddDictionary(UIList.CollectionUI, "CollectionUI", "LobbyCollectionUI");
     }
+    #endregion
+
+    #region Function
     private void Start()
     {
         foreach (var data in UIListDirctionary)
@@ -62,4 +69,5 @@ public class LobbyManager : Singleton<LobbyManager>
             ObjectDirctory[GameObjectName].SetActive(active);
         }
     }
+    #endregion
 }

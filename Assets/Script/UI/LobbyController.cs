@@ -5,12 +5,21 @@ using UnityEngine.UI;
 
 public class LobbyController : AddUIEvent
 {
+    #region field
     private GameObject[] gamedatas;
+    #endregion
+    #region InheritanceFunction
     public override void Init()
     {
         SetName();
         Set();
     }
+    #endregion
+
+    #region Function
+    /// <summary>
+    /// 이벤트 할당을 위해 Init 에서 실행하는 함수
+    /// </summary>
     public override void Set()
     {
         AddButtonEvent("GameStartButton", () =>
@@ -52,7 +61,7 @@ public class LobbyController : AddUIEvent
             }
         }
     }
-
+    #endregion
 
     #region Event
     private void MakeNewData()

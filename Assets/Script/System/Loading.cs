@@ -5,18 +5,21 @@ using System.Collections;
 
 public class Loading : MonoBehaviour
 {
-
+    #region Field
     [SerializeField]
     private Slider slider;
     [SerializeField]
     private string sceneName;
-
+    #endregion
+    #region UnityCycle
     private void Awake()
     {
         StartCoroutine(SceneLoad());
         slider.value = 0f;
-
     }
+    #endregion
+
+    #region IEnum
     IEnumerator SceneLoad()
     {
         float timecount = 0;
@@ -40,4 +43,5 @@ public class Loading : MonoBehaviour
 
         }
     }
+    #endregion
 }

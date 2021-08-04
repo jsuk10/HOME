@@ -1,13 +1,9 @@
 using System.Collections.Generic;
 
-public enum SceneName
-{
-    main,
-    inGame
-}
 public enum ParsingDataSet
 {
     Dialogue,
+    EventDialog,
 
 }
 public enum UIList
@@ -19,4 +15,15 @@ public enum UIList
     StateUI,
     MapUI,
     PopUpUI,
+}
+
+public enum Stage {
+    Lobby,
+    Kitchen,
+    Yard,
+    Road,
+    Park,
+    Forest,
+    Cliff,
+    Epilogue
 }
