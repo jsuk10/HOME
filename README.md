@@ -3,7 +3,7 @@
 <hr/>
 <br>
 <h2>제작자</h2>
-한나, 지석, 정석, 유정
+이한나, 최지석, 이정석, 김나경
 
 <br>
 <hr/>
@@ -17,7 +17,7 @@
 <h2>사용 기술</h2>
 
 **ProGramaing**
-* Pull request
+* git with Pull request
 * Unity3D
 <br>
 
