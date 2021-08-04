@@ -61,3 +61,47 @@ public class UIMenuClass
     public GameObject creadit;
     public Text[] playerNameText = new Text[3];
 }
+
+/// <summary>
+/// 스테이지의 주요정보를 담고 있는 클래스 
+/// VCam = 시네머신 가상 카메라
+/// Door = 스테이지의 문
+/// </summary>
+[System.Serializable]
+public class Stage
+{
+    public Stage(GameObject VCam, GameObject Door, GameObject Position)
+    {
+        vCam = VCam;
+        door = Door;
+        position = Position;
+    }
+    GameObject vCam;
+    public GameObject VCam
+    {
+        get
+        {
+            return vCam;
+        }
+    }
+
+    GameObject door;
+
+    public GameObject Door
+    {
+        get
+        {
+            return door;
+        }
+    }
+
+    GameObject position;
+    
+    public GameObject Position
+    {
+        get
+        {
+            return position;
+        }
+    }
+}
