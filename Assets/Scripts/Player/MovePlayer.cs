@@ -26,11 +26,12 @@ public class MovePlayer: MonoBehaviour
     /// </summary>
     private bool SetDirection()
     {
-        moveDirection = new Vector3(0, 0, 0);
-
         v = Input.GetAxis("Vertical");
         h = Input.GetAxis("Horizontal");
 
+        //moveDirection = new Vector3(h, v, 0);
+  
+        moveDirection = new Vector3(0, 0, 0);
         if(0 < v && prevV <= v)
             moveDirection += Vector3.up;
         if(v < 0 && v <= prevV)
