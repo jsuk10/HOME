@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,15 +7,15 @@ using UnityEngine.UI;
 public class LobbyManager : Singleton<LobbyManager>
 {
     #region field
-    public Dictionary<UIList, AddUIEvent> UIListDirctionary = new Dictionary<UIList, AddUIEvent>();
+    public Dictionary<UIList, AddUIButtonEvent> UIListDirctionary = new Dictionary<UIList, AddUIButtonEvent>();
     public Dictionary<string, GameObject> ObjectDirctory = new Dictionary<string, GameObject>();
     #endregion
 
     #region InheritanceFunction
     public override void Init()
     {
-        AddDictionary(UIList.LobbyUI, "LobbyUI", "LobbyController");
-        AddDictionary(UIList.OnOffMenuUI, "OnOffMenuUI", "UIOnOffController", false);
+        AddUIDictionary(UIList.LobbyUI, "LobbyUI", "LobbyController");
+        AddUIDictionary(UIList.OnOffMenuUI, "OnOffMenuUI", "OnOffUiController", false);
         //AddDictionary(UIList.OptionUI, "OptionUI", "LobbyOptionUI");
         //AddDictionary(UIList.CollectionUI, "CollectionUI", "LobbyCollectionUI");
     }
@@ -23,6 +24,7 @@ public class LobbyManager : Singleton<LobbyManager>
     #region Function
     private void Start()
     {
+        //각 객체에 있는 Init을 실행시켜 하위 오브젝트에 해당하는 이벤트를 추가시켜줌
         foreach (var data in UIListDirctionary)
         {
             if (data.Value)
@@ -32,42 +34,59 @@ public class LobbyManager : Singleton<LobbyManager>
 
     /// <summary>
     /// 딕셔너리에 추가하는 메소드
+    /// UIList에 해당하는 객체에 AddUIButtonEvent를 추가해서 하위 오브젝트에 이벤트를 추가해
     /// </summary>
     /// <param name="path">transform에서 있을 위치</param>
-    /// <param name="script">다운캐스팅시 넣어야할 스크립트(없으면 디폴트)</param>
-    public void AddDictionary(UIList UiName, string path, string script = "", bool state = true)
+    /// <param name="script">넣어줘야 하는 스크립트, AddUIButtonEvent를 상속하여야함.</param>
+    /// <param name="state">setState 상태</param>
+    public void AddUIDictionary(UIList UiName, string path, string script = "", bool state = true)
     {
-        if (!string.IsNullOrEmpty(script))
+        AddUIButtonEvent ButtonEvent = new AddUIButtonEvent();
+        GameObject uiGameObject = transform.Find(path).gameObject;
+
+        //이미 컴포넌트가 있는 경우를 고려하여 try catch사용하여 컴포넌트를 추가해줌
+        try
         {
-            UIListDirctionary.Add(UiName, transform.Find(path).gameObject.AddComponent(System.Type.GetType(script)) as AddUIEvent);
+            if (!string.IsNullOrEmpty(script))
+            {
+                ButtonEvent = uiGameObject.AddComponent(System.Type.GetType(script)) as AddUIButtonEvent;
+            }
+            else
+            {
+                ButtonEvent = uiGameObject.AddComponent<AddUIButtonEvent>();
+            }
         }
-        else
+        catch (UnityException e)
         {
-            UIListDirctionary.Add(UiName, transform.Find(path).GetComponent<AddUIEvent>());
+            Debug.Log(e);
+            ButtonEvent = uiGameObject.GetComponent<AddUIButtonEvent>();
         }
-        transform.Find(path).gameObject.AddComponent<AddDictionary>();
+
+        finally
+        {
+            UIListDirctionary.Add(UiName, ButtonEvent);
+
+        }
+
+        //하위 오브젝트를 추가하기 위한 방법
+        uiGameObject.AddComponent<AddDictionary>();
+
         foreach (Transform child in transform.Find(path))
         {
             child.gameObject.SetActive(state);
         }
     }
-    public void AddDictionary(string ObjectName, Transform transform)
+
+    /// <summary>
+    /// 오브젝트를 딕셔너리에 추가하는 메소드
+    /// 게임 오브젝트를 직접 추가할 경우 쓰는 오브젝트
+    /// </summary>
+    /// <param name="ObjectName"></param>
+    /// <param name="transform"></param>
+    public void AddObjectDictionary(string ObjectName, Transform transform)
     {
         ObjectDirctory.Add(ObjectName, transform.gameObject);
     }
-    public void SetUI(UIList state, bool active)
-    {
-        if (UIListDirctionary.ContainsKey(state))
-        {
-            UIListDirctionary[state].SetView(active);
-        }
-    }
-    public void SetUI(string GameObjectName, bool active)
-    {
-        if (ObjectDirctory.ContainsKey(GameObjectName))
-        {
-            ObjectDirctory[GameObjectName].SetActive(active);
-        }
-    }
+
     #endregion
 }
