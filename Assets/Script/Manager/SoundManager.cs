@@ -23,7 +23,6 @@ public class SoundManager : Singleton<SoundManager>
     /// </summary>
     private void GetSoundsFromResources()
     {
-        Debug.Log("getSound");
         sfxClipFiles = Resources.LoadAll<AudioClip>("Sound/SFXSound");
         backGorundMusicClipFiles = Resources.LoadAll<AudioClip>("Sound/BackGroundSound");
 
@@ -37,7 +36,8 @@ public class SoundManager : Singleton<SoundManager>
         {
             backGroundAudioClipDirctionary.Add(backGorundMusicClipFiles[i].name, backGorundMusicClipFiles[i]);
         }
-        PlayBackGroundSound(Stage.Kitchen);
+        //PlayBackGroundSound(Stage.Lobby);
+        //PlayBackGroundSound(Stage.Kitchen);
     }
 
     /// <summary>
