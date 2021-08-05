@@ -22,14 +22,17 @@ public class InteractionPlayer : Singleton<InteractionPlayer>
     /// </summary>
     public IEnumerator InputProcess()
     {
+  
+
         while(true)
         {
             if(Input.GetKey(KeyCode.E))
             {
-                Debug.Log($"{listObject.Count}");
-                if(listObject.Count >= 0)
+                var tempListObject = listObject;
+                Debug.Log($"{tempListObject.Count}");
+                if(tempListObject.Count > 0)
                 {
-                    var popedObject = PopObject(listObject[0]);
+                    var popedObject = PopObject(tempListObject[0]);
                     popedObject.Interaction();
                     popedObject.IsEnqueued = false;
                 }
