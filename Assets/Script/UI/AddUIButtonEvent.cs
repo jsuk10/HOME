@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class AddUIEvent : MonoBehaviour
+public class AddUIButtonEvent : MonoBehaviour
 {
     /// <summary>
     /// 초기화 해주는 함수
@@ -22,7 +22,12 @@ public class AddUIEvent : MonoBehaviour
     {
         gameObject.SetActive(state);
     }
-    public void SetView(GameObject target, bool state)
+    /// <summary>
+    /// Stat에 맞춰서 타겟을 키고 꺼준다.
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="state"></param>
+    public void SetTargetView(GameObject target, bool state)
     {
         target.SetActive(state);
     }
@@ -116,6 +121,8 @@ public class AddUIEvent : MonoBehaviour
     /// <summary>
     /// 경로를 통해 이벤트를 줄 경우
     /// </summary>
+    /// <param name="path">대상</param>
+    /// <param name="function">이벤트</param>
     protected void AddButtonEvent(string path, UnityAction function)
     {
         AddButtonEvent(transform.Find(path), function);
