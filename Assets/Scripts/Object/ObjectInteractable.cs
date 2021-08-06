@@ -21,6 +21,11 @@ public class ObjectInteractable : MonoBehaviour
         }
     }
     
+    private void Awake()
+    {
+        ObjectDictionary.Instance.AddObject(this);
+    }
+
     /// <summary>
     /// 오브젝트와 플레이어가 충돌 상태일때 삽입 여부가 거짓이라면
     /// 삽입 여부를 참으로 전환하고 상호작용 큐에 삽입 
