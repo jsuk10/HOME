@@ -5,17 +5,17 @@ using UnityEngine;
 /// <summary>
 /// Stage와 관련된 이벤트들을 처리하는 스크립트, Awake에서 Stage의 정보를 담은 
 /// </summary>
-public class StageController : MonoBehaviour
+public class StageController : Singleton<StageController>
 {
     public GameObject player;
-    public static StageController instance;
     List<StageInfo> listStage;
-    void Awake()
+    public override void Init()
     {
-        instance = this;
-        
         listStage = new List<StageInfo>();
+    }
 
+    void Start()
+    {
         foreach(Transform child in transform)
         {
             GameObject childGO = child.gameObject;
@@ -25,7 +25,6 @@ public class StageController : MonoBehaviour
                     childGO.transform.Find("Background").Find("Door").gameObject,
                     childGO.transform.Find("Position").gameObject));
         }
-            
     }
 
     /// <summary>
