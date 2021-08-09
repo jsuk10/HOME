@@ -21,7 +21,7 @@ public class ObjectInteractable : MonoBehaviour
         }
     }
     
-    private void Awake()
+    private void Start()
     {
         ObjectDictionary.Instance.AddObject(this);
     }
