@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class AddUIButtonEvent : MonoBehaviour
@@ -22,11 +23,12 @@ public class AddUIButtonEvent : MonoBehaviour
     {
         gameObject.SetActive(state);
     }
+
     /// <summary>
     /// Stat에 맞춰서 타겟을 키고 꺼준다.
     /// </summary>
-    /// <param name="target"></param>
-    /// <param name="state"></param>
+    /// <param name="target">해당 게임 오브젝트</param>
+    /// <param name="state">상태</param>
     public void SetTargetView(GameObject target, bool state)
     {
         target.SetActive(state);
@@ -51,13 +53,63 @@ public class AddUIButtonEvent : MonoBehaviour
     }
 
     /// <summary>
-    /// 버튼을 통해 이벤트를 줄 경우
+    /// 버튼에 통해 이벤트를 줄 경우
     /// </summary>
-    protected void AddButtonEvent(Button target, UnityAction function)
+    protected void AddClickButtonEvent(Button target, UnityAction function)
     {
         target.onClick.AddListener(() => function());
     }
 
+    /// <summary>
+    /// 트리거에 이벤트를 추가하는 함수
+    /// </summary>
+    /// <param name="trigger">해당 대상이 달고 있는 트리거 밑의 구현함수로 뽑아와야함</param>
+    /// <param name="type">이벤트 타입 ex)EventTriggerType.PointerEnter </param>
+    /// <param name="function">추가할 함수</param>
+    protected void AddButtonTriggerEvent(EventTrigger trigger,EventTriggerType type ,UnityAction function)
+    {
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = type;
+        //entry.callback.AddListener((data) => { OnPointerDownDelegate((PointerEventData)data); });
+        entry.callback.AddListener((data) => { function(); });
+        trigger.triggers.Add(entry);
+    }
+
+    /// <summary>
+    /// 이벤트 트리거를 추가하고 받아오는 함수
+    /// </summary>
+    /// <param name="target"> 이벤트 추가할 대상</param>
+    /// <returns> 반환값 </returns>
+    protected EventTrigger AddEventTrigger(GameObject target) {
+        EventTrigger eventTrigger;
+        try
+        {
+            eventTrigger = target.AddComponent<EventTrigger>();
+        }
+        catch (UnityException e)
+        {
+            Debug.Log(e);
+            target.TryGetComponent<EventTrigger>(out eventTrigger);
+        }
+        return eventTrigger;
+    }
+
+    /// <summary>
+    /// 애니메이터를 추가하고 반환받는 함수
+    /// 있을 경우 해당 애니메이터를 반환ㅎ
+    /// </summary>
+    /// <param name="target">추가할 대상</param>
+    /// <returns></returns>
+    protected Animator GetAnimator(GameObject target)
+    {
+        Animator animator;
+        if (!target.TryGetComponent<Animator>(out animator))
+            animator = target.AddComponent<Animator>();
+        animator.runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load($"Animation/Controller/{target.name}");
+        return animator;
+    }
+
+   
     /// <summary>
     /// 게임 종료
     /// </summary>
@@ -90,13 +142,6 @@ public class AddUIButtonEvent : MonoBehaviour
         SetText(target.GetComponent<Text>(), content);
     }
 
-    /// <summary>
-    /// 자신에게 이벤트를 줄 경우
-    /// </summary>
-    protected void AddButtonEvent(UnityAction function)
-    {
-        AddButtonEvent(transform.GetComponent<Button>(), function);
-    }
 
     /// <summary>
     /// 특정 대상에게 이벤트를 줄 경우
@@ -105,7 +150,7 @@ public class AddUIButtonEvent : MonoBehaviour
     /// <param name="function">이벤트</param>
     protected void AddButtonEvent(GameObject target, UnityAction function)
     {
-        AddButtonEvent(target.GetComponent<Button>(), function);
+        AddClickButtonEvent(target.GetComponent<Button>(), function);
     }
 
     /// <summary>
@@ -115,7 +160,7 @@ public class AddUIButtonEvent : MonoBehaviour
     /// <param name="function">이벤트</param>
     protected void AddButtonEvent(Transform target, UnityAction function)
     {
-        AddButtonEvent(target.GetComponent<Button>(), function);
+        AddClickButtonEvent(target.GetComponent<Button>(), function);
     }
 
     /// <summary>
@@ -127,5 +172,7 @@ public class AddUIButtonEvent : MonoBehaviour
     {
         AddButtonEvent(transform.Find(path), function);
     }
+
+
     #endregion
 }

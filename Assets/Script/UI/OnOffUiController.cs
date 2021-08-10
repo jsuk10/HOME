@@ -23,7 +23,7 @@ public class OnOffUiController : AddUIButtonEvent
     {
         AddButtonEvent("Credit/CreditOffButton", () => SetTargetView(LobbyManager.Instance.ObjectDirctory["Credit"], false));
         AddButtonEvent("Setting/SettingOffButton", () => SetTargetView(LobbyManager.Instance.ObjectDirctory["Setting"], false));
-        AddButtonEvent("GameStart/LoadOffButton", () => SetTargetView(LobbyManager.Instance.ObjectDirctory["Load"], false));
+        AddButtonEvent("GameStart/LoadOffButton", () => SetTargetView(LobbyManager.Instance.ObjectDirctory["GameStart"], false));
     }
 
 
