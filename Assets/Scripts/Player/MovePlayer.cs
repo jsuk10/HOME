@@ -37,9 +37,16 @@ public class MovePlayer: MonoBehaviour
         if(v < 0 && v <= prevV)
             moveDirection += Vector3.down;
         if(0 < h && prevH <= h)
-            moveDirection += Vector3.right;
+        {
+            FlipSprite(1);
+            moveDirection += Vector3.right;          
+        }
         if(h < 0 && h <= prevH)
+        {
+            FlipSprite(-1);
             moveDirection += Vector3.left;
+        }
+
 
         prevV = v;
         prevH = h;
@@ -60,10 +67,18 @@ public class MovePlayer: MonoBehaviour
     private void CheckSameDirection()
     {
         if(Vector3.Dot(moveDirection, prevDirection) <= 0.0f)
+        {  
             keyInputTime = 0;
+        }
         else
             keyInputTime += Time.deltaTime;
         prevDirection = moveDirection;         
+    }
+
+    private void FlipSprite(int x)
+    {
+        var sprite = gameObject.transform.Find("Sprite");
+        sprite.localScale = new Vector3(x, 1, 1);
     }
     private void Move()
     {
