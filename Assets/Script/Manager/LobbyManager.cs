@@ -14,7 +14,7 @@ public class LobbyManager : Singleton<LobbyManager>
     #region InheritanceFunction
     public override void Init()
     {
-        AddUIDictionary(UIList.LobbyUI, "LobbyUI", "LobbyController");
+        AddUIDictionary(UIList.LobbyUI, "LobbyUI", "LobbyButtonController");
         AddUIDictionary(UIList.OnOffMenuUI, "OnOffMenuUI", "OnOffUiController", false);
         //AddDictionary(UIList.OptionUI, "OptionUI", "LobbyOptionUI");
         //AddDictionary(UIList.CollectionUI, "CollectionUI", "LobbyCollectionUI");
