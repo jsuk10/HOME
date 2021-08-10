@@ -9,6 +9,7 @@ public class ObjectDictionary : Singleton<ObjectDictionary>
 {
     Dictionary<string , ObjectInteractable> objectDictionary;
 
+    public int Count {get {return objectDictionary.Count;}}
     public override void Init()
     {
         objectDictionary = new Dictionary<string, ObjectInteractable>();
@@ -20,7 +21,8 @@ public class ObjectDictionary : Singleton<ObjectDictionary>
     /// <param name="objectInteractable"></param>
     public void AddObject(ObjectInteractable objectInteractable)
     {
-        objectDictionary.Add(gameObject.transform.parent.gameObject.name, objectInteractable);
+        Debug.Log(objectInteractable.gameObject.name);
+        objectDictionary.Add(objectInteractable.gameObject.name, objectInteractable);
     }
 
     /// <summary>
@@ -32,4 +34,5 @@ public class ObjectDictionary : Singleton<ObjectDictionary>
     {
         return objectDictionary[objectName];
     }
+
 }

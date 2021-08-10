@@ -77,26 +77,12 @@ public class StageInfo
         position = Position;
     }
     GameObject vCam;
-    public GameObject VCam
-    {
-        get
-        {
-            return vCam;
-        }
-    }
+    public GameObject VCam {get {return vCam;}}
 
     GameObject door;
-
-    public GameObject Door
-    {
-        get
-        {
-            return door;
-        }
-    }
+    public GameObject Door {get {return door;}}
 
     GameObject position;
-    
     public GameObject Position
     {
         get
