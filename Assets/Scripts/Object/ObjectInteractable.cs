@@ -21,6 +21,9 @@ public class ObjectInteractable : MonoBehaviour
         }
     }
     
+    public delegate void DelInteraction();
+    public DelInteraction Interaction;
+
     private void Start()
     {
         ObjectDictionary.Instance.AddObject(this);
@@ -28,7 +31,7 @@ public class ObjectInteractable : MonoBehaviour
 
     /// <summary>
     /// 오브젝트와 플레이어가 충돌 상태일때 삽입 여부가 거짓이라면
-    /// 삽입 여부를 참으로 전환하고 상호작용 큐에 삽입 
+    /// 삽입 여부를 참으로 전환하고 상호작용 큐에 삽입
     /// </summary>
     /// <param name="other"></param>
     private void OnTriggerStay(Collider other) 
@@ -50,17 +53,11 @@ public class ObjectInteractable : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerExit(Collider other) 
     {
-        Debug.Log(gameObject.transform.parent.gameObject.name + " Exit");
+        Debug.Log(gameObject.name + " Exit");
         if(other.tag == "Player")
         {
             InteractionPlayer.Instance.PopObject(this);
             isEnqueued = false;
         }
-    }
-    
-    
-    public void Interaction()
-    {
-        Debug.Log(gameObject.transform.parent.gameObject.name + " Interaction");
     }
 }
