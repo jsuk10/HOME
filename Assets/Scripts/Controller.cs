@@ -6,7 +6,7 @@ public class Controller : MonoBehaviour
 {
     void Start() 
     {
-        StageController.Instance.SetStage(0);
+        StageManager.Instance.SetStage(0);
     }
     void Update()
     {
@@ -17,12 +17,12 @@ public class Controller : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Alpha0))
         {
-            StageController.Instance.SetStage(0);
+            StageManager.Instance.SetStage(0);
             Debug.Log(0);
         }
         else if(Input.GetKeyDown(KeyCode.Alpha1))
         {
-            StageController.Instance.SetStage(1);
+            StageManager.Instance.SetStage(1);
              Debug.Log(1);
         }
     }
