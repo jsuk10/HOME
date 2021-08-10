@@ -30,6 +30,7 @@ public class LobbyManager : Singleton<LobbyManager>
             if (data.Value)
                 data.Value.Init();
         }
+        SoundManager.Instance.SFXPlayer("Intro");
     }
 
     /// <summary>

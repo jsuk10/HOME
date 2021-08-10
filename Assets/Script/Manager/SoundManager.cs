@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Events;
 
 public class SoundManager : Singleton<SoundManager>
 {
@@ -14,6 +15,8 @@ public class SoundManager : Singleton<SoundManager>
 
     public override void Init()
     {
+        if (audioMixer == null)
+            audioMixer = (AudioMixer)Resources.Load("Sound/Audio Mixer");
         GetSoundsFromResources();
         DontDestroyOnLoad(this);
     }
@@ -36,8 +39,6 @@ public class SoundManager : Singleton<SoundManager>
         {
             backGroundAudioClipDirctionary.Add(backGorundMusicClipFiles[i].name, backGorundMusicClipFiles[i]);
         }
-        //PlayBackGroundSound(Stage.Lobby);
-        //PlayBackGroundSound(Stage.Kitchen);
     }
 
     /// <summary>
@@ -87,7 +88,6 @@ public class SoundManager : Singleton<SoundManager>
     /// <param name="index">Stage</param>
     public void PlayBackGroundSound(Stage stage)
     {
-        Debug.Log(stage.ToString());
         if (backGroundSound == null)
             backGroundSound = this.gameObject.AddComponent<AudioSource>();
         AudioClip clip = backGroundAudioClipDirctionary[$"{stage.ToString()}"];

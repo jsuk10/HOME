@@ -9,7 +9,6 @@ public class LobbyButtonController : AddUIButtonEvent
 {
     #region field
     private GameObject[] gamedatas;
-
     private  List<GameObject> ButtonList = new List<GameObject>();
     #endregion
     #region InheritanceFunction
@@ -59,13 +58,12 @@ public class LobbyButtonController : AddUIButtonEvent
             });
             AddButtonTriggerEvent(eventTrigger, EventTriggerType.PointerExit, () =>
             {
-                Debug.Log("eixt");
                 //animator.Play("default");
             });
         }
     }
 
-    /// <summary>Ï
+    /// <summary>
     /// 데이터 로드 매뉴 불러오기
     /// </summary>
     // private void SetName()
