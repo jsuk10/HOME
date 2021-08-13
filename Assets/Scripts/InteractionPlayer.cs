@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class InteractionPlayer : Singleton<InteractionPlayer>
 {
-    List<ObjectInteractable> listObject;
-    public Queue<Command> queueCommand;
+    private List<ObjectInteractable> listObject;
+    private Queue<Command> queueCommand;
 
     public override void Init()
     {
@@ -19,7 +19,7 @@ public class InteractionPlayer : Singleton<InteractionPlayer>
         StartCoroutine(nameof(ExecuteCommandQueue));
     }
 
-    /// <summary>
+    /// <summary> 
     /// 입력 처리, 상호작용 키를 누르면 상호작용 커맨드를 큐에 삽입하고 딜레이를 준다
     /// </summary>
     public IEnumerator InputProcess()
