@@ -44,6 +44,7 @@ public class StageManager : Singleton<StageManager>
 
         foreach(var stage in listStageInfo)
             stage.VCam.SetActive(false);
+        
         player.transform.position = curStage.Position.transform.Find("Player").position;
 
         curStage.VCam.SetActive(true);
