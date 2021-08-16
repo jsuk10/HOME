@@ -13,7 +13,7 @@ public class AddDictionary : MonoBehaviour
     {
         foreach (Transform child in transform)
         {
-            LobbyManager.Instance.AddDictionary(child.gameObject.name, child);
+            LobbyManager.Instance.AddObjectDictionary(child.gameObject.name, child);
         }
     }
 }
