@@ -8,16 +8,15 @@ public class LobbyManager : Singleton<LobbyManager>
 {
     #region field
     public Dictionary<UIList, AddUIButtonEvent> UIListDirctionary = new Dictionary<UIList, AddUIButtonEvent>();
-    public Dictionary<string, GameObject> ObjectDirctory = new Dictionary<string, GameObject>();
+    public Dictionary<string, GameObject> ObjectDictionary = new Dictionary<string, GameObject>();
     #endregion
 
     #region InheritanceFunction
     public override void Init()
     {
-        AddUIDictionary(UIList.LobbyUI, "LobbyUI", "LobbyButtonController");
-        AddUIDictionary(UIList.OnOffMenuUI, "OnOffMenuUI", "OnOffUiController", false);
-        //AddDictionary(UIList.OptionUI, "OptionUI", "LobbyOptionUI");
-        //AddDictionary(UIList.CollectionUI, "CollectionUI", "LobbyCollectionUI");
+        AddUIDictionary(UIList.LobbyUI, "LobbyUI", true, "LobbyButtonController");
+        AddUIDictionary(UIList.OptionUI, "OnOffMenuUI/Setting", true, "OptionUI");
+        AddUIDictionary(UIList.OnOffMenuUI, "OnOffMenuUI", false, "OnOffLobbyUi");
     }
     #endregion
 
@@ -30,6 +29,11 @@ public class LobbyManager : Singleton<LobbyManager>
             if (data.Value)
                 data.Value.Init();
         }
+        PlayBackGoundSound();
+    }
+
+    public virtual void PlayBackGoundSound()
+    {
         SoundManager.Instance.SFXPlayer("Intro");
     }
 
@@ -40,9 +44,9 @@ public class LobbyManager : Singleton<LobbyManager>
     /// <param name="path">transform에서 있을 위치</param>
     /// <param name="script">넣어줘야 하는 스크립트, AddUIButtonEvent를 상속하여야함.</param>
     /// <param name="state">setState 상태</param>
-    public void AddUIDictionary(UIList UiName, string path, string script = "", bool state = true)
+    public void AddUIDictionary(UIList UiName, string path, bool state = true, string script = "")
     {
-        AddUIButtonEvent ButtonEvent = new AddUIButtonEvent();
+        AddUIButtonEvent ButtonEvent = null;
         GameObject uiGameObject = transform.Find(path).gameObject;
 
         //이미 컴포넌트가 있는 경우를 고려하여 try catch사용하여 컴포넌트를 추가해줌
@@ -86,8 +90,7 @@ public class LobbyManager : Singleton<LobbyManager>
     /// <param name="transform"></param>
     public void AddObjectDictionary(string ObjectName, Transform transform)
     {
-        ObjectDirctory.Add(ObjectName, transform.gameObject);
+        ObjectDictionary.Add(ObjectName, transform.gameObject);
     }
-
     #endregion
 }
