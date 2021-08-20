@@ -27,14 +27,19 @@ public class TrackPlayer : MonoBehaviour
         vectorToPlayer.Normalize();
         //vectorToPlayer.z = Player.transform.position.z;
 
+        var dogSprite = transform.Find("Sprite");
         if(distanceToPlayer <= limitDistance - padding)
-        {
+        {   
+            transform.localScale = new Vector3 (1, 1, 1);
             transform.Translate(vectorToPlayer * -velocity * Time.deltaTime);
         }
         else if(limitDistance + padding <= distanceToPlayer)
         {
+            transform.localScale = new Vector3 (-1, 1, 1);
             transform.Translate(vectorToPlayer * velocity * Time.deltaTime);
         }
+
+
     }
     // Update is called once per frame
 }
