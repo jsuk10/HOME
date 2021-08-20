@@ -15,6 +15,9 @@ public enum UIList
     StateUI,
     MapUI,
     PopUpUI,
+    MainUI,
+    OnOffUI,
+    SettingUI
 }
 
 public enum Stage {
