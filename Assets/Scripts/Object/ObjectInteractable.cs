@@ -56,7 +56,7 @@ public class ObjectInteractable : MonoBehaviour
     /// </summary>
     public void Interaction()
     {
-        GameEventManager.Instance.ReceiveInteraction(this);
+        delInteraction();
         isEnqueued = false;
     }
 }
