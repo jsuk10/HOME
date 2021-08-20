@@ -9,8 +9,6 @@ public class LobbyButtonController : AddUIButtonEvent
 {
     #region field
     private GameObject[] gamedatas;
-
-    private  List<GameObject> ButtonList = new List<GameObject>();
     #endregion
     #region InheritanceFunction
     public override void Init()
@@ -22,10 +20,10 @@ public class LobbyButtonController : AddUIButtonEvent
 
     private void FindGameObject()
     {
-        ButtonList.Add(LobbyManager.Instance.ObjectDirctory["GameStartButton"]);
-        ButtonList.Add(LobbyManager.Instance.ObjectDirctory["CreidtButton"]);
-        ButtonList.Add(LobbyManager.Instance.ObjectDirctory["SettingButton"]);
-        ButtonList.Add(LobbyManager.Instance.ObjectDirctory["ExitButton"]);
+        ButtonList.Add(LobbyManager.Instance.ObjectDictionary["GameStartButton"]);
+        ButtonList.Add(LobbyManager.Instance.ObjectDictionary["CreidtButton"]);
+        ButtonList.Add(LobbyManager.Instance.ObjectDictionary["SettingButton"]);
+        ButtonList.Add(LobbyManager.Instance.ObjectDictionary["ExitButton"]);
     }
     #endregion
 
@@ -37,35 +35,18 @@ public class LobbyButtonController : AddUIButtonEvent
     {
         AddButtonEvent("GameStartButton", () =>
         {
-            SetTargetView(LobbyManager.Instance.ObjectDirctory["GameStart"], true);
+            SetTargetView(LobbyManager.Instance.ObjectDictionary["GameStart"], true);
             SoundManager.Instance.SFXPlayer("StartButton");
         });
-        AddButtonEvent("CreidtButton", () => SetTargetView(LobbyManager.Instance.ObjectDirctory["Credit"], true));
-        AddButtonEvent("SettingButton", () => SetTargetView(LobbyManager.Instance.ObjectDirctory["Setting"], true));
+        AddButtonEvent("CreidtButton", () => SetTargetView(LobbyManager.Instance.ObjectDictionary["Credit"], true));
+        AddButtonEvent("SettingButton", () => SetTargetView(LobbyManager.Instance.ObjectDictionary["Setting"], true));
         AddButtonEvent("ExitButton", () => ExitGame());
 
-        SetByttonHoverSound();
+        SetButtonHoverSound();
     }
 
-    private void SetByttonHoverSound()
-    {
-        foreach (var button in ButtonList) {
-            var eventTrigger = AddEventTrigger(button);
-            var animator = GetAnimator(button);
-            AddButtonTriggerEvent(eventTrigger, EventTriggerType.PointerEnter, () =>
-            {
-                //animator.Play("hover");
-                SoundManager.Instance.SFXPlayer("MenuButtonHover");
-            });
-            AddButtonTriggerEvent(eventTrigger, EventTriggerType.PointerExit, () =>
-            {
-                Debug.Log("eixt");
-                //animator.Play("default");
-            });
-        }
-    }
 
-    /// <summary>Ï
+    /// <summary>
     /// 데이터 로드 매뉴 불러오기
     /// </summary>
     // private void SetName()
