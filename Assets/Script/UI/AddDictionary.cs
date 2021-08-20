@@ -9,9 +9,17 @@ using UnityEngine.UI;
 /// </summary>
 public class AddDictionary : MonoBehaviour
 {
+    
+
     protected void Awake()
     {
-        foreach (Transform child in transform)
+        AddDictionaryChild(transform);
+    }
+
+
+    public void AddDictionaryChild(Transform tr)
+    {
+        foreach (Transform child in tr)
         {
             LobbyManager.Instance.AddObjectDictionary(child.gameObject.name, child);
         }
