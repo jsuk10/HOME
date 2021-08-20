@@ -10,7 +10,7 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField] private AudioMixer audioMixer;
     private AudioClip[] sfxClipFiles;
     private AudioClip[] backGorundMusicClipFiles;
-    private Dictionary<string, AudioClip> sfxAudioClipDirctionary;
+    [SerializeField] private Dictionary<string, AudioClip> sfxAudioClipDirctionary;
     private Dictionary<string, AudioClip> backGroundAudioClipDirctionary;
 
     public override void Init()
@@ -47,16 +47,28 @@ public class SoundManager : Singleton<SoundManager>
     /// <param name="vol"></param>
     public void ChangeBackGroundSoundVolume(float vol)
     {
-        audioMixer.SetFloat("BackGround", Mathf.Log10(vol) * 20);
+        Debug.Log(vol);
+        if (vol <= 0.005) {
+            audioMixer.SetFloat("BackGroundSoundGroup", -80);
+            return;
+        }
+
+        audioMixer.SetFloat("BackGroundSoundGroup", Mathf.Log10(vol) * 20);
     }
 
     /// <summary>
     /// 효과음 사운드를 조절해주는 함수
     /// </summary>
     /// <param name="vol"></param>
-    public void SFXSound(float vol)
+    public void ChangeSFXSoundVolum(float vol)
     {
-        audioMixer.SetFloat("SFX", Mathf.Log10(vol) * 20);
+        if (vol <= 0.005)
+        {
+            audioMixer.SetFloat("SFXGroupSound", -80);
+            return;
+        }
+
+        audioMixer.SetFloat("SFXGroupSound", Mathf.Log10(vol) * 20);
     }
 
     
