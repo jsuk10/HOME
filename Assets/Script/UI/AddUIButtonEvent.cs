@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class AddUIButtonEvent : MonoBehaviour
 {
+    protected List<GameObject> ButtonList = new List<GameObject>();
+
     /// <summary>
     /// 초기화 해주는 함수
     /// 여기서 이벤트 할당 및 활성화 여부 지정해줌
@@ -66,7 +68,7 @@ public class AddUIButtonEvent : MonoBehaviour
     /// <param name="trigger">해당 대상이 달고 있는 트리거 밑의 구현함수로 뽑아와야함</param>
     /// <param name="type">이벤트 타입 ex)EventTriggerType.PointerEnter </param>
     /// <param name="function">추가할 함수</param>
-    protected void AddButtonTriggerEvent(EventTrigger trigger,EventTriggerType type ,UnityAction function)
+    protected void AddButtonTriggerEvent(EventTrigger trigger, EventTriggerType type, UnityAction function)
     {
         EventTrigger.Entry entry = new EventTrigger.Entry();
         entry.eventID = type;
@@ -80,7 +82,8 @@ public class AddUIButtonEvent : MonoBehaviour
     /// </summary>
     /// <param name="target"> 이벤트 추가할 대상</param>
     /// <returns> 반환값 </returns>
-    protected EventTrigger AddEventTrigger(GameObject target) {
+    protected EventTrigger AddEventTrigger(GameObject target)
+    {
         EventTrigger eventTrigger;
         try
         {
@@ -109,7 +112,7 @@ public class AddUIButtonEvent : MonoBehaviour
         return animator;
     }
 
-   
+
     /// <summary>
     /// 게임 종료
     /// </summary>
@@ -160,7 +163,15 @@ public class AddUIButtonEvent : MonoBehaviour
     /// <param name="function">이벤트</param>
     protected void AddButtonEvent(Transform target, UnityAction function)
     {
-        AddClickButtonEvent(target.GetComponent<Button>(), function);
+        Button button;
+        if (target.TryGetComponent<Button>(out button))
+            AddClickButtonEvent(target.GetComponent<Button>(), function);
+        else
+        {
+            Debug.Log($"{target}is not have Button");
+            //AddClickButtonEvent(target.gameObject.AddComponent<Button>(), function);
+
+        }
     }
 
     /// <summary>
@@ -173,6 +184,65 @@ public class AddUIButtonEvent : MonoBehaviour
         AddButtonEvent(transform.Find(path), function);
     }
 
+    /// <summary>
+    /// 모든 버튼에 소리 추가하는 함
+    /// </summary>
+    protected void SetButtonHoverSound()
+    {
+        foreach (var button in ButtonList)
+        {
+            var eventTrigger = AddEventTrigger(button);
+            var animator = GetAnimator(button);
+            AddButtonTriggerEvent(eventTrigger, EventTriggerType.PointerEnter, () =>
+            {
+                //animator.Play("hover");
+                SoundManager.Instance.SFXPlayer("MenuButtonHover");
+            });
+            AddButtonTriggerEvent(eventTrigger, EventTriggerType.PointerExit, () =>
+            {
+                //animator.Play("default");
+            });
+        }
+    }
+
+    /// <summary>
+    /// 하나만 추가
+    /// </summary>
+    protected void SetButtonHoverSound(GameObject target)
+    {
+        var eventTrigger = AddEventTrigger(target);
+        var animator = GetAnimator(target);
+        AddButtonTriggerEvent(eventTrigger, EventTriggerType.PointerEnter, () =>
+        {
+                //animator.Play("hover");
+                SoundManager.Instance.SFXPlayer("MenuButtonHover");
+        });
+        AddButtonTriggerEvent(eventTrigger, EventTriggerType.PointerExit, () =>
+        {
+                //animator.Play("default");
+        });
+    }
+
+    /// <summary>
+    /// 리스트에 해당하는 버튼 사운드 주기
+    /// </summary>
+    protected void SetButtonHoverSound(Dictionary<string,GameObject> ButtonList)
+    {
+        foreach (var button in ButtonList.Values)
+        {
+            var eventTrigger = AddEventTrigger(button);
+            var animator = GetAnimator(button);
+            AddButtonTriggerEvent(eventTrigger, EventTriggerType.PointerEnter, () =>
+            {
+                //animator.Play("hover");
+                SoundManager.Instance.SFXPlayer("MenuButtonHover");
+            });
+            AddButtonTriggerEvent(eventTrigger, EventTriggerType.PointerExit, () =>
+            {
+                //animator.Play("default");
+            });
+        }
+    }
 
     #endregion
 }
