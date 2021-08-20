@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovePlayer: MonoBehaviour
 {
     private float velocityWalk = 2f;
-    private float velocityRun = 5;
+    private float velocityRun = 4;
     private Vector3 moveDirection;
     private Vector3 prevDirection;
     float keyInputTime = 0.0f;
@@ -26,19 +26,27 @@ public class MovePlayer: MonoBehaviour
     /// </summary>
     private bool SetDirection()
     {
-        moveDirection = new Vector3(0, 0, 0);
-
         v = Input.GetAxis("Vertical");
         h = Input.GetAxis("Horizontal");
 
+        //moveDirection = new Vector3(h, v, 0);
+  
+        moveDirection = new Vector3(0, 0, 0);
         if(0 < v && prevV <= v)
             moveDirection += Vector3.up;
         if(v < 0 && v <= prevV)
             moveDirection += Vector3.down;
         if(0 < h && prevH <= h)
-            moveDirection += Vector3.right;
+        {
+            FlipSprite(1);
+            moveDirection += Vector3.right;          
+        }
         if(h < 0 && h <= prevH)
+        {
+            FlipSprite(-1);
             moveDirection += Vector3.left;
+        }
+
 
         prevV = v;
         prevH = h;
@@ -59,10 +67,18 @@ public class MovePlayer: MonoBehaviour
     private void CheckSameDirection()
     {
         if(Vector3.Dot(moveDirection, prevDirection) <= 0.0f)
+        {  
             keyInputTime = 0;
+        }
         else
             keyInputTime += Time.deltaTime;
         prevDirection = moveDirection;         
+    }
+
+    private void FlipSprite(int x)
+    {
+        var sprite = gameObject.transform.Find("Sprite");
+        sprite.localScale = new Vector3(x, 1, 1);
     }
     private void Move()
     {
