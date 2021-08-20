@@ -70,33 +70,16 @@ public class UIMenuClass
 [System.Serializable]
 public class StageInfo
 {
-    public StageInfo(GameObject VCam, GameObject Door, GameObject Position)
+    public StageInfo(GameObject VCam, GameObject Position, StageGameEvent GameEvent)
     {
         vCam = VCam;
-        door = Door;
         position = Position;
+        gameEvent = GameEvent;
     }
     GameObject vCam;
-    public GameObject VCam
-    {
-        get
-        {
-            return vCam;
-        }
-    }
-
-    GameObject door;
-
-    public GameObject Door
-    {
-        get
-        {
-            return door;
-        }
-    }
+    public GameObject VCam {get {return vCam;}}
 
     GameObject position;
-    
     public GameObject Position
     {
         get
@@ -104,4 +87,6 @@ public class StageInfo
             return position;
         }
     }
+    StageGameEvent gameEvent;
+    public StageGameEvent GameEvent {get => gameEvent;}
 }
