@@ -20,7 +20,7 @@ public class EventGarden1 : GameEvent
         this.enabled = false;
         if(caller.gameObject.name != "Pit")
         {
-            Debug.Log(caller.gameObject.name + "is caller");
+            //Debug.Log(caller.gameObject.name + "is caller");
             caller = null;
             owner.StartStageEvent(1);
         }

@@ -120,6 +120,7 @@ public class InteractionPlayer : Singleton<InteractionPlayer>
         /// </summary>
         public void Execute()
         {
+            //Debug.Log("Execute");
             delCommand();
         }
     }

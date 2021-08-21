@@ -5,17 +5,24 @@ using UnityEngine;
 public class EventKitchen1 : GameEvent
 {
     [SerializeField]
-    public GameObject Position;
+    private GameObject player;
     [SerializeField]
-    public GameObject Player;
+    private GameObject position;
+
     override public bool Condition()
     {
-        if(Player.transform.position.x > Position.transform.position.x)
+        if(player.transform.position.x > position.transform.position.x)
         {   
             return true;
         }
         return false;
     }
+
+    override protected void InitEvent()
+    {
+        player = MainObject.Instance.player;
+        position = transform.Find("EventPosition").gameObject;
+    } 
 
     /// <summary>
     /// 움직임이 멈추고 메시지, 컵 테두리 오버레이
@@ -23,7 +30,7 @@ public class EventKitchen1 : GameEvent
     /// <returns></returns>
     override public IEnumerator EventAction()
     {
-        var movePlayer = Player.GetComponent<MovePlayer>();
+        var movePlayer = player.GetComponent<MovePlayer>();
         movePlayer.enabled = false;
 
         var cupGameObject = ObjectDictionary.Instance.FindObject("Cup").gameObject;

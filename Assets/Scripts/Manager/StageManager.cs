@@ -7,11 +7,16 @@ using UnityEngine;
 /// </summary>
 public class StageManager : Singleton<StageManager>
 {
-    public GameObject player;
-    public GameObject dog;
+    private GameObject player;
+    private GameObject dog;
     List<StageInfo> listStageInfo;
+
+    int currentStageNum;
+
     public override void Init()
     {
+        player = MainObject.Instance.player;
+        dog = MainObject.Instance.dog;
         listStageInfo = new List<StageInfo>();
     }
 
@@ -39,16 +44,18 @@ public class StageManager : Singleton<StageManager>
     /// <summary>
     /// 현재 스테이지를 n번째 스테이지로 설정한다
     /// </summary>
-    public void SetStage(int currentStageNum)
+    public void SetStage(int CurrentStageNum)
     {
+        currentStageNum = CurrentStageNum;
+
         StageInfo curStage = listStageInfo[currentStageNum];
 
         foreach(var stage in listStageInfo)
             stage.VCam.SetActive(false);
         
         player.transform.position = curStage.Position.transform.Find("Player").position;
-        var dogPosition = curStage.Position.transform.Find("Dog");
         
+        var dogPosition = curStage.Position.transform.Find("Dog");
         if(dogPosition != null)
         {
             dog.transform.position = dogPosition.position;

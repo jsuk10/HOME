@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class EventGarden5 : GameEvent
 {
-    [SerializeField]
     GameObject player;
-
-    [SerializeField]
     GameObject eventPosition;
+
+    override protected void InitEvent()
+    {
+        player = MainObject.Instance.player;
+        eventPosition = transform.Find("EventPosition").gameObject;
+    }
+
     override public bool Condition()
     {
-        if(Vector3.Distance(eventPosition.transform.position, player.transform.position) < 1)
+        if(eventPosition.transform.position.x < player.transform.position.x)
             return true;
         return false;
     }
