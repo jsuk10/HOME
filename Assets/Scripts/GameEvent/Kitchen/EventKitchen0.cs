@@ -11,6 +11,8 @@ public class EventKitchen0 : GameEvent
 
     override public IEnumerator EventAction()
     {
+        yield return new WaitForSeconds(2.0f);
+
         this.enabled = false;
         owner.StartStageEvent(1);
         yield return null;

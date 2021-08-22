@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EventGarden0 : GameEvent
 {
-    [SerializeField]
-    MovePlayer movePlayer;
     override public bool Condition()
     {
         return true;
@@ -17,7 +15,7 @@ public class EventGarden0 : GameEvent
     /// <returns></returns>
     override public IEnumerator EventAction()
     {
-        Debug.Log("EventGarden 0");
+        var movePlayer = MainObject.Instance.player.GetComponent<MovePlayer>();
         movePlayer.enabled = false;
         yield return new WaitForSeconds(2.0f);
     

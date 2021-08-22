@@ -8,13 +8,19 @@ public class GameEvent : MonoBehaviour
     public ObjectInteractable caller;
     private void Awake() 
     {
-        Debug.Log("Script Off");
+        InitEvent();
+        //Debug.Log("Script Off");
         this.enabled = false;
     }
-    
+
+    virtual protected void InitEvent()
+    {
+
+    }
+
     private void OnEnable() 
     {
-        Debug.Log("Script ON");
+        //Debug.Log("Script ON");
         StartCoroutine(nameof(CheckCondition));   
     }
     // Start is called before the first frame update
@@ -42,6 +48,6 @@ public class GameEvent : MonoBehaviour
     public void ReceiveObject(ObjectInteractable objectInteractable)
     {
         caller = objectInteractable;
-        Debug.Log("caller Changed, caller's name is " + caller.gameObject.name);
+        //Debug.Log("caller Changed, caller's name is " + caller.gameObject.name);
     }
 }

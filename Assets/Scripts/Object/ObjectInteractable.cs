@@ -9,8 +9,6 @@ using UnityEngine;
 public class ObjectInteractable : MonoBehaviour
 {
     bool isEnqueued = false;
-    public delegate void DelInteraction();
-    public DelInteraction delInteraction;
     
     private void Start()
     {
@@ -56,7 +54,7 @@ public class ObjectInteractable : MonoBehaviour
     /// </summary>
     public void Interaction()
     {
-        delInteraction();
+        GameEventManager.Instance.ReceiveInteraction(this);
         isEnqueued = false;
     }
 }
