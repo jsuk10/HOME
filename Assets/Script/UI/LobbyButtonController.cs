@@ -21,7 +21,7 @@ public class LobbyButtonController : AddUIButtonEvent
     private void FindGameObject()
     {
         ButtonList.Add(LobbyManager.Instance.ObjectDictionary["GameStartButton"]);
-        ButtonList.Add(LobbyManager.Instance.ObjectDictionary["CreidtButton"]);
+        ButtonList.Add(LobbyManager.Instance.ObjectDictionary["ReloadButton"]);
         ButtonList.Add(LobbyManager.Instance.ObjectDictionary["SettingButton"]);
         ButtonList.Add(LobbyManager.Instance.ObjectDictionary["ExitButton"]);
     }
@@ -35,10 +35,12 @@ public class LobbyButtonController : AddUIButtonEvent
     {
         AddButtonEvent("GameStartButton", () =>
         {
-            SetTargetView(LobbyManager.Instance.ObjectDictionary["GameStart"], true);
+            //신로드하기
+            //데이터 초기화
             SoundManager.Instance.SFXPlayer("StartButton");
         });
-        AddButtonEvent("CreidtButton", () => SetTargetView(LobbyManager.Instance.ObjectDictionary["Credit"], true));
+        //로드버튼에 이벤트주기
+        //AddButtonEvent("ReloadButton", () => SetTargetView(LobbyManager.Instance.ObjectDictionary["ReloadButton"], true));
         AddButtonEvent("SettingButton", () => SetTargetView(LobbyManager.Instance.ObjectDictionary["Setting"], true));
         AddButtonEvent("ExitButton", () => ExitGame());
 
