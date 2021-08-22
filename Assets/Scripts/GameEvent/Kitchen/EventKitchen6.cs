@@ -7,8 +7,6 @@ public class EventKitchen6 : GameEvent
     // Start is called before the first frame update
     override public bool Condition()
     {
-
-        Debug.Log(caller == null);
         if(caller != null)
         {
             if(caller.gameObject.name == "DoorKitchen")

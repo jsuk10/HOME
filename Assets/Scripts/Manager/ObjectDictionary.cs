@@ -21,7 +21,6 @@ public class ObjectDictionary : Singleton<ObjectDictionary>
     /// <param name="objectInteractable"></param>
     public void AddObject(ObjectInteractable objectInteractable)
     {
-        Debug.Log(objectInteractable.gameObject.name);
         objectDictionary.Add(objectInteractable.gameObject.name, objectInteractable);
     }
 

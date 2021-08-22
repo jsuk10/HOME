@@ -29,8 +29,4 @@ public class GameEventManager : Singleton<GameEventManager>
     {
         listStageGameEvent[currentStage].SendObject(objectInteractable);
     }
-
-    
-
-
 }

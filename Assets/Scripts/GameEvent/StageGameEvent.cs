@@ -29,6 +29,7 @@ public class StageGameEvent : MonoBehaviour
     {
         foreach(int currentEventIndex in listCurrentEventIndex)
         {
+            //Debug.Log("Current Event Index is " + currentEventIndex);
             listGameEvent[currentEventIndex].ReceiveObject(objectInteractable);
         }
     }

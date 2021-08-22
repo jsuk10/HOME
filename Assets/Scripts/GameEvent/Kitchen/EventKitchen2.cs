@@ -8,7 +8,6 @@ public class EventKitchen2 : GameEvent
     // Start is called before the first frame update
     override public bool Condition()
     {
-        Debug.Log(caller == null);
         if(caller != null)
         {
             if(caller.gameObject.name == "Cup")
@@ -32,7 +31,7 @@ public class EventKitchen2 : GameEvent
 
         var potObject = ObjectDictionary.Instance.FindObject("Pot");
         var potSprite = potObject.transform.Find("Sprite");
-
+        //Debug.Log(potSprite.gameObject.name);
         potSprite.Find("Highlight").gameObject.SetActive(true);
         potSprite.Find("Normal").gameObject.SetActive(false);
 
