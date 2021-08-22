@@ -29,13 +29,8 @@ public class LobbyManager : Singleton<LobbyManager>
             if (data.Value)
                 data.Value.Init();
         }
-        PlayBackGoundSound();
     }
 
-    public virtual void PlayBackGoundSound()
-    {
-        SoundManager.Instance.SFXPlayer("Intro");
-    }
 
     /// <summary>
     /// 딕셔너리에 추가하는 메소드
