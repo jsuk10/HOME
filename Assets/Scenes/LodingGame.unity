@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1652831912}
-  sceneName: Lobby
+  sceneName: Main
 --- !u!4 &693890020
 Transform:
   m_ObjectHideFlags: 0
