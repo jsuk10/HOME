@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class EventKitchen1 : GameEvent
 {
-    [SerializeField]
     private GameObject player;
-    [SerializeField]
+
     private GameObject position;
 
     override public bool Condition()
