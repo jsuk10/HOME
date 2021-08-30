@@ -28,6 +28,7 @@ public class EventGarden2 : GameEvent
     {
         var movePlayer = player.GetComponent<MovePlayer>();
         movePlayer.enabled = false;
+        DialogueManager.Instance.Begin(21,21);
         Debug.Log("구덩이에 뭔가가 보인다");
         yield return new WaitForSeconds(2.0f);
         this.enabled = false;
