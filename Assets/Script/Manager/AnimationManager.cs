@@ -48,6 +48,17 @@ public class AnimationManager : Singleton<AnimationManager>
         }
     }
     /// <summary>
+    /// 현재 움직일 수 있는 상태(디폴트,무브 상태일 경우)
+    /// </summary>
+    /// <param name="stateName"></param>
+    /// <returns></returns>
+    public bool PlayerCanMove()
+    {
+        return PlayerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Defult")
+            || PlayerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Move")
+            || PlayerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Run");
+    }
+    /// <summary>
     /// 강아지 애니매이션 실행해주는 스크립트
     /// </summary>
     /// <param name="animationName">애니메이션에 들어가 있는 이름 </param>
