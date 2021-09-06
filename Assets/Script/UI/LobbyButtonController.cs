@@ -36,7 +36,7 @@ public class LobbyButtonController : AddUIButtonEvent
         AddButtonEvent("GameStartButton", () =>
         {
             //신로드하기
-            //데이터 초기화
+            SceneManager.Instance.LoadScene(Stage.LodingGame);
             SoundManager.Instance.SFXPlayer("StartButton");
         });
         //로드버튼에 이벤트주기

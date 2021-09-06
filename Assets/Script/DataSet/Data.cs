@@ -128,7 +128,6 @@ public abstract class Data<K, T> : NonUnitySingleton<K> where T : Data<K, T>.Dat
                 var tableKey = collectionPair.Key;
                 var tableValue = collectionPair.Value;
 
-                Debug.Log($"name : {tableValue.ContainsKey("name")} ,key : {tableValue.ContainsKey("key")} , di :{tableValue.ContainsKey("dialogue")} ,ect :{tableValue.ContainsKey("ect")} ");
                 //테일블을 읽어서 키에는 키값을 매칭하고 다른값중 T에 속한 데이터면 삽입해줌
                 for (int i = 0; i < fields.Length; i++)
                 {

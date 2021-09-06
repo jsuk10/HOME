@@ -62,7 +62,11 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 6e2abde73f35542b5af7ff461da5768b
+    name: BackGroundSoundGroup
+  - guid: 38b336351652d4a3fbf7ae85bc2acf0b
+    name: SFXGroupSound
   m_AudioMixerGroupViews:
   - guids:
     - b4b17479d49614571bdc2fe417ebdd5d
@@ -117,7 +121,7 @@ AudioMixerSnapshotController:
   m_SnapshotID: b5cfb2cfceeee4699b697ab635b463b6
   m_FloatValues:
     38b336351652d4a3fbf7ae85bc2acf0b: 0
-    6e2abde73f35542b5af7ff461da5768b: -20
+    6e2abde73f35542b5af7ff461da5768b: -19.999998
   m_TransitionOverrides: {}
 --- !u!243 &4192163757055954229
 AudioMixerGroupController:

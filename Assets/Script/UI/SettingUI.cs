@@ -11,7 +11,7 @@ public class SettingUI : AddUIButtonEvent
     [SerializeField] private Sprite[] unActiveImage = new Sprite[5];
     [SerializeField] private List<Transform> settingButtonChild = new List<Transform>();
     [SerializeField] private List<Transform> targetButtonChild = new List<Transform>();
-
+    private Button exitbutton;
     private void Awake()
     {
         Set();
@@ -49,6 +49,23 @@ public class SettingUI : AddUIButtonEvent
             AddButtonEvent(tr.gameObject ,() => SetActiveAndChangeIcon(index, image));
             //AddButtonEvent(tr.gameObject ,() => SetActiveAndChangeIcon(i, image));
         }
+
+        AddButtonEvent(transform.Find("SettingOnOffMenu/Main/Yes"), () =>
+        {
+            SceneManager.Instance.LoadScene(Stage.Lobby);
+        });
+
+        Image temp = settingButtonChild[0].GetComponent<Image>();
+        AddButtonEvent(transform.Find("SettingOnOffMenu/Main/No"), () =>
+        {
+            SetActiveAndChangeIcon(0, temp);
+        });
+
+        AddButtonEvent(transform.Find("SettingExitButton"), () =>
+        {
+            SetTargetView(LobbyManager.Instance.ObjectDictionary["Setting"], false);
+        });
+
         AddSoundSlider();
 
         OffAll();

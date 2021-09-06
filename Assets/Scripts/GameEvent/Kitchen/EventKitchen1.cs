@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class EventKitchen1 : GameEvent
 {
-    [SerializeField]
     private GameObject player;
-    [SerializeField]
+
     private GameObject position;
 
+    
+
+    override protected void InitEvent()
+    {
+        player = MainObject.Instance.player;
+        position = transform.Find("EventPosition").gameObject;
+    } 
+    /// <summary>
+    /// 일정 위치 도달 시
+    /// </summary>
+    /// <returns></returns>
     override public bool Condition()
     {
         if(player.transform.position.x > position.transform.position.x)
@@ -17,12 +27,6 @@ public class EventKitchen1 : GameEvent
         }
         return false;
     }
-
-    override protected void InitEvent()
-    {
-        player = MainObject.Instance.player;
-        position = transform.Find("EventPosition").gameObject;
-    } 
 
     /// <summary>
     /// 움직임이 멈추고 메시지, 컵 테두리 오버레이
@@ -36,7 +40,7 @@ public class EventKitchen1 : GameEvent
         var cupGameObject = ObjectDictionary.Instance.FindObject("Cup").gameObject;
         var cupSprite = cupGameObject.transform.Find("Sprite");
         
-
+        DialogueManager.Instance.Begin(3,3);
         yield return new WaitForSeconds(2.0f);
         cupSprite.Find("Highlight").gameObject.SetActive(true);
         cupSprite.Find("Normal").gameObject.SetActive(false);

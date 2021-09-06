@@ -23,6 +23,7 @@ public class EventGarden6 : GameEvent
     /// <returns></returns>
     override public IEnumerator EventAction()
     {
+        DialogueManager.Instance.Begin(25,27);
         Debug.Log("문이 잠겨있다, 열쇠를 찾자");
         this.enabled = false;
         owner.StartStageEvent(7);

@@ -1,4 +1,4 @@
-﻿key,eventName,startIndex,endIndex,ect,
+key,eventName,startIndex,endIndex,ect,
 1,시작 이벤트,2,2,게임의 첫 시작 부분,
 2,기본 조작 안내,3,4,이동 및 상호작용 안내,
 3,첫 상호작용,5,5,컵 획득,

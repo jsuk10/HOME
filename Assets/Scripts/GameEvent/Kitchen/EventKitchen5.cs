@@ -25,6 +25,9 @@ public class EventKitchen5 : GameEvent
     {
         var phoneObject = ObjectDictionary.Instance.FindObject("Phone");
         phoneObject.gameObject.SetActive(false);
+        
+        DialogueManager.Instance.Begin(12,15);
+
         Debug.Log("Door Unlock");
         //Door is Open;
         this.enabled = false;

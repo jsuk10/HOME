@@ -5,7 +5,10 @@ using UnityEngine;
 public class EventKitchen2 : GameEvent
 {
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// 컵과 상호작용 했을 시
+    /// </summary>
+    /// <returns></returns>
     override public bool Condition()
     {
         if(caller != null)
@@ -19,12 +22,12 @@ public class EventKitchen2 : GameEvent
     }
 
     /// <summary>
-    /// 컵 상호작용 시 사라짐
+    /// 오브젝트가 사라지고 
     /// </summary>
     /// <returns></returns>
     override public IEnumerator EventAction()
     {
-
+        DialogueManager.Instance.Begin(4,5);
         var cupGameObject = ObjectDictionary.Instance.FindObject("Cup");
         
         cupGameObject.gameObject.SetActive(false);

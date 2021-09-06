@@ -29,6 +29,14 @@ public class EventGarden5 : GameEvent
         var spriteDoor = ObjectDictionary.Instance.FindObject("DoorGarden").transform.Find("Sprite");
         spriteDoor.transform.Find("DoorOpened").gameObject.SetActive(false);
         spriteDoor.transform.Find("DoorClosed").gameObject.SetActive(true);
+
+        var movePlayer = player.GetComponent<MovePlayer>();
+
+        movePlayer.enabled = false;
+        DialogueManager.Instance.Begin(23,23);
+        yield return new WaitForSeconds(2.0f);
+        movePlayer.enabled = true;
+
         this.enabled = false;
         owner.StartStageEvent(6);
             

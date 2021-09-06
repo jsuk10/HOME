@@ -20,7 +20,9 @@ public class EventGarden3 : GameEvent
     /// <returns></returns>
     override public IEnumerator EventAction()
     {
+        DialogueManager.Instance.Begin(22,22);
         this.enabled = false;
+        
         Debug.Log("앨범 시스템 획득");
         owner.StartStageEvent(4);
             

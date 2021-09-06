@@ -21,6 +21,7 @@ public enum UIList
 }
 
 public enum Stage {
+    LodingGame,
     Lobby,
     Kitchen,
     Yard,

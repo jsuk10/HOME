@@ -10,6 +10,9 @@ public class DialogueManager : Singleton<DialogueManager>
     [SerializeField] private Text target;
     [SerializeField] private float typingTerm=0.1f;
     private bool isTyping = false;
+
+    [SerializeField] private GameObject dialogWindow;
+
     private IEnumerator typing;
 
     private DialogueData.DialogueDataClass dialogue;
@@ -18,6 +21,9 @@ public class DialogueManager : Singleton<DialogueManager>
 
     #region InheritanceFunction
     public override void Init(){
+        if (dialogWindow == null)
+            dialogWindow = GameObject.Find("Window");
+        dialogWindow.SetActive(false);
     }
     #endregion
 
@@ -52,14 +58,12 @@ public class DialogueManager : Singleton<DialogueManager>
     /// </summary>
     public void Begin(int start,int end)
     {
+        dialogWindow.SetActive(true);
         dialogue = new DialogueData.DialogueDataClass();
         dialogueQueue.Clear();
-        for (int i = start; i < end; i++) {
+        for (int i = start; i <= end; i++) {
             dialogueQueue.Enqueue(DialogueData.Instance.GetTableData(i));
-            Debug.Log($"{i} : {DialogueData.Instance.GetTableData(i).dialogue}");
         }
-        dialogue = dialogueQueue.Dequeue();
-
         Next();
     }
 
@@ -70,17 +74,23 @@ public class DialogueManager : Singleton<DialogueManager>
     /// </summary>
     public void Next()
     {
-        Debug.Log("next");
         if (isTyping == true)
         {
             StopCoroutine(typing);
             target.text = dialogue.dialogue;
             isTyping = false;
-            if(dialogueQueue.Count != 0)
-            dialogue = dialogueQueue.Dequeue();
+            return;
         }
-        else
+
+        if (dialogueQueue.Count == 0)
         {
+            End();
+            return;
+        }
+
+        if (isTyping == false)
+        {
+            dialogue = dialogueQueue.Dequeue();
             AttachDialog(dialogue.name);
             if(!string.IsNullOrEmpty(dialogue.sfxSound))
                 SoundManager.Instance.SFXPlayer(dialogue.sfxSound);
@@ -88,11 +98,7 @@ public class DialogueManager : Singleton<DialogueManager>
             typing = TypeSentance();
             StartCoroutine(typing);
         }
-        if (dialogueQueue.Count == 0)
-        {
-            End();
-            return;
-        }
+        
     }
     
 
@@ -100,8 +106,8 @@ public class DialogueManager : Singleton<DialogueManager>
     /// 끝났음을 알려주는 스크립트
     /// </summary>
     public void End() {
+        dialogWindow.SetActive(false);
         //끝남 처리
-        Debug.Log("끝");
     }
 
     /// <summary>
@@ -113,8 +119,8 @@ public class DialogueManager : Singleton<DialogueManager>
             target.text += letter;
             yield return new WaitForSeconds(typingTerm);
         }
+
         isTyping = false;
-        dialogue = dialogueQueue.Dequeue();
     }
     #endregion
 }

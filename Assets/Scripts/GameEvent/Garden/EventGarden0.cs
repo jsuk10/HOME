@@ -18,8 +18,10 @@ public class EventGarden0 : GameEvent
         var movePlayer = MainObject.Instance.player.GetComponent<MovePlayer>();
         movePlayer.enabled = false;
         yield return new WaitForSeconds(2.0f);
+
+        DialogueManager.Instance.Begin(20,20);
     
-        this.enabled = false;
+        this.enabled = false;   
         owner.StartStageEvent(1);
         owner.StartStageEvent(2);
         movePlayer.enabled = true;

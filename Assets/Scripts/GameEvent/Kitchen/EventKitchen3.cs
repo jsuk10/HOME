@@ -25,7 +25,7 @@ public class EventKitchen3 : GameEvent
     {
         var potObject = ObjectDictionary.Instance.FindObject("Pot");
         var potSprite = potObject.transform.Find("Sprite");
-
+        DialogueManager.Instance.Begin(6,6);
         potSprite.Find("Half").gameObject.SetActive(true);
         potSprite.Find("Highlight").gameObject.SetActive(false);
 

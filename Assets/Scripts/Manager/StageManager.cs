@@ -18,6 +18,11 @@ public class StageManager : Singleton<StageManager>
         player = MainObject.Instance.player;
         dog = MainObject.Instance.dog;
         listStageInfo = new List<StageInfo>();
+/*
+        foreach(Transform child in transform)
+        {
+            var objectInStage = child.Find("ObjectInteractable");
+        }*/
     }
 
     void Start()

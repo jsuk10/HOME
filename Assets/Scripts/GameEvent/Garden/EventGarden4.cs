@@ -29,8 +29,9 @@ public class EventGarden4 : GameEvent
     override public IEnumerator EventAction()
     {
         this.enabled = false;
-        yield return new WaitForSeconds(2.0f);
         dog.SetActive(false);
+        yield return new WaitForSeconds(2.0f);
+        
         owner.StartStageEvent(5);
             
         yield return null;
