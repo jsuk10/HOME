@@ -10,11 +10,8 @@ public class DialogueManager : Singleton<DialogueManager>
     [SerializeField] private Text target;
     [SerializeField] private float typingTerm=0.1f;
     private bool isTyping = false;
-    
-    /// <summary>
-    /// 임시 윈도우 변수 (창 껏다켰다)
-    /// </summary>
-    public GameObject window;
+
+    [SerializeField] private GameObject dialogWindow;
 
     private IEnumerator typing;
 
@@ -24,6 +21,9 @@ public class DialogueManager : Singleton<DialogueManager>
 
     #region InheritanceFunction
     public override void Init(){
+        if (dialogWindow == null)
+            dialogWindow = GameObject.Find("Window");
+        dialogWindow.SetActive(false);
     }
     #endregion
 
@@ -58,12 +58,11 @@ public class DialogueManager : Singleton<DialogueManager>
     /// </summary>
     public void Begin(int start,int end)
     {
-        window.SetActive(true);
+        dialogWindow.SetActive(true);
         dialogue = new DialogueData.DialogueDataClass();
         dialogueQueue.Clear();
         for (int i = start; i <= end; i++) {
             dialogueQueue.Enqueue(DialogueData.Instance.GetTableData(i));
-            Debug.Log($"{i} : {DialogueData.Instance.GetTableData(i).dialogue}");
         }
         Next();
     }
@@ -75,23 +74,21 @@ public class DialogueManager : Singleton<DialogueManager>
     /// </summary>
     public void Next()
     {
+        if (isTyping == true)
+        {
+            StopCoroutine(typing);
+            target.text = dialogue.dialogue;
+            isTyping = false;
+            return;
+        }
 
-
-        Debug.Log("next");
         if (dialogueQueue.Count == 0)
         {
             End();
             return;
         }
 
-        if (isTyping == true)
-        {
-            StopCoroutine(typing);
-            target.text = dialogue.dialogue;
-            isTyping = false;
-            
-        }
-        else
+        if (isTyping == false)
         {
             dialogue = dialogueQueue.Dequeue();
             AttachDialog(dialogue.name);
@@ -109,10 +106,8 @@ public class DialogueManager : Singleton<DialogueManager>
     /// 끝났음을 알려주는 스크립트
     /// </summary>
     public void End() {
-        
-        Debug.Log("끝");
+        dialogWindow.SetActive(false);
         //끝남 처리
-        
     }
 
     /// <summary>
@@ -126,11 +121,6 @@ public class DialogueManager : Singleton<DialogueManager>
         }
 
         isTyping = false;
-        if(dialogueQueue.Count == 0)
-        {
-            yield return new WaitForSeconds(1.0f);
-            window.SetActive(false);
-        }
     }
     #endregion
 }
