@@ -56,14 +56,14 @@ public class AnimationManager : Singleton<AnimationManager>
         return PlayerAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
     }
     /// <summary>
-    /// 현재 움직일 수 있는 상태(디폴트,무브 상태일 경우)
+    /// 현재 움직이고 있는지 체크하
     /// </summary>
     /// <param name="stateName"></param>
     /// <returns></returns>
     public bool PlayerIsMove()
     {
-        return PlayerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Move")
-            || PlayerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Run");
+        return PlayerAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlayerMove")
+            || PlayerAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlayerRun");
     }
 
 
