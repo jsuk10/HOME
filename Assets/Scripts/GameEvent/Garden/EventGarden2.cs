@@ -27,7 +27,7 @@ public class EventGarden2 : GameEvent
     override public IEnumerator EventAction()
     {
         var movePlayer = player.GetComponent<MovePlayer>();
-        movePlayer.enabled = false;
+        movePlayer.SetMoveLock(true);
         DialogueManager.Instance.Begin(21,21);
         Debug.Log("구덩이에 뭔가가 보인다");
         yield return new WaitForSeconds(2.0f);
@@ -35,7 +35,7 @@ public class EventGarden2 : GameEvent
 
         owner.StartStageEvent(3);
 
-        movePlayer.enabled = true;
+        movePlayer.SetMoveLock(false);
             
         yield return null;
     }

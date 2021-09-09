@@ -10,6 +10,8 @@ public class MovePlayer: MonoBehaviour
     private Vector3 prevDirection;
     float keyInputTime = 0.0f;
 
+    bool moveLock = false;
+
     private float timeNeedtoRun = 1.5f;
 
     private float v = 0;
@@ -19,6 +21,7 @@ public class MovePlayer: MonoBehaviour
     void Update()
     {
         Move();
+        //Debug.Log(moveLock);
     }
 
     /// <summary>
@@ -82,15 +85,23 @@ public class MovePlayer: MonoBehaviour
     }
     private void Move()
     {
-        if(SetDirection())
+        if(moveLock == false)
         {
-            CheckSameDirection();
-            if(keyInputTime <= timeNeedtoRun)
-                transform.Translate(moveDirection * velocityWalk * Time.deltaTime);
-            else
-                transform.Translate(moveDirection * velocityRun * Time.deltaTime);
+            if(SetDirection())
+            {
+                CheckSameDirection();
+                if(keyInputTime <= timeNeedtoRun)
+                    transform.Translate(moveDirection * velocityWalk * Time.deltaTime);
+                else
+                    transform.Translate(moveDirection * velocityRun * Time.deltaTime);
             
             //Dog.GetComponent<TrackPlayer>().Track();
+            }
         }
+    }
+
+    public void SetMoveLock(bool _moveLock)
+    {
+        moveLock = _moveLock;
     }
 }

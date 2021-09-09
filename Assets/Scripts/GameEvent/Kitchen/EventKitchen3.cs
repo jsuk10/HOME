@@ -18,13 +18,17 @@ public class EventKitchen3 : GameEvent
     }
 
     /// <summary>
-    /// 
+    /// 주전자와 상호작용 시 애니메이션 실행
     /// </summary>
     /// <returns></returns>
     override public IEnumerator EventAction()
     {
         var potObject = ObjectDictionary.Instance.FindObject("Pot");
         var potSprite = potObject.transform.Find("Sprite");
+
+        AnimationManager.Instance.PlayPlayerAni("PlayerDrink");
+
+
         DialogueManager.Instance.Begin(6,6);
         potSprite.Find("Half").gameObject.SetActive(true);
         potSprite.Find("Highlight").gameObject.SetActive(false);

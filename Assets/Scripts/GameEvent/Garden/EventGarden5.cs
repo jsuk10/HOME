@@ -32,10 +32,10 @@ public class EventGarden5 : GameEvent
 
         var movePlayer = player.GetComponent<MovePlayer>();
 
-        movePlayer.enabled = false;
+        movePlayer.SetMoveLock(true);
         DialogueManager.Instance.Begin(23,23);
         yield return new WaitForSeconds(2.0f);
-        movePlayer.enabled = true;
+        movePlayer.SetMoveLock(false);
 
         this.enabled = false;
         owner.StartStageEvent(6);
