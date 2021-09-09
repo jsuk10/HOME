@@ -21,6 +21,7 @@ public class MovePlayer: MonoBehaviour
     void Update()
     {
         Move();
+        //Debug.Log(moveLock);
     }
 
     /// <summary>

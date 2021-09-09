@@ -11,6 +11,8 @@ public class DialogueManager : Singleton<DialogueManager>
     [SerializeField] private float typingTerm=0.1f;
     private bool isTyping = false;
 
+    MovePlayer movePlayer;
+
     [SerializeField] private GameObject dialogWindow;
 
     private IEnumerator typing;
@@ -24,6 +26,8 @@ public class DialogueManager : Singleton<DialogueManager>
         if (dialogWindow == null)
             dialogWindow = GameObject.Find("Window");
         dialogWindow.SetActive(false);
+
+        movePlayer = MainObject.Instance.player.GetComponent<MovePlayer>();
     }
     #endregion
 
@@ -39,6 +43,8 @@ public class DialogueManager : Singleton<DialogueManager>
         else {
             this.target = target;
         }
+
+        
     }
 
 
@@ -58,6 +64,8 @@ public class DialogueManager : Singleton<DialogueManager>
     /// </summary>
     public void Begin(int start,int end)
     {
+        movePlayer.SetMoveLock(true);
+
         dialogWindow.SetActive(true);
         dialogue = new DialogueData.DialogueDataClass();
         dialogueQueue.Clear();
@@ -106,8 +114,11 @@ public class DialogueManager : Singleton<DialogueManager>
     /// 끝났음을 알려주는 스크립트
     /// </summary>
     public void End() {
+        movePlayer.SetMoveLock(false);
+
         dialogWindow.SetActive(false);
         //끝남 처리
+
     }
 
     /// <summary>
