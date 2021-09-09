@@ -31,7 +31,6 @@ public class EventKitchen0 : GameEvent
         yield return new WaitForSeconds(2.0f);
         DialogueManager.Instance.Begin(1,2);
         yield return new WaitForSeconds(1.0f);
-        movePlayer.SetMoveLock(false);
         this.enabled = false;
         owner.StartStageEvent(1);
         yield return null;
