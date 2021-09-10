@@ -25,13 +25,12 @@ public class EventKitchen0 : GameEvent
     {
         
         var movePlayer = player.GetComponent<MovePlayer>();
-        movePlayer.enabled = false;
+        movePlayer.SetMoveLock(true);
 
         StartCoroutine(PlayerMoveAnim());
         yield return new WaitForSeconds(2.0f);
         DialogueManager.Instance.Begin(1,2);
         yield return new WaitForSeconds(1.0f);
-        movePlayer.enabled = true;
         this.enabled = false;
         owner.StartStageEvent(1);
         yield return null;

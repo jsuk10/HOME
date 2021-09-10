@@ -35,8 +35,7 @@ public class EventKitchen1 : GameEvent
     override public IEnumerator EventAction()
     {
         var movePlayer = player.GetComponent<MovePlayer>();
-        movePlayer.enabled = false;
-
+        movePlayer.SetMoveLock(true);
         var cupGameObject = ObjectDictionary.Instance.FindObject("Cup").gameObject;
         var cupSprite = cupGameObject.transform.Find("Sprite");
         
@@ -47,7 +46,7 @@ public class EventKitchen1 : GameEvent
 
         this.enabled = false;
         owner.StartStageEvent(2);
-        movePlayer.enabled = true;
+        movePlayer.SetMoveLock(false);
         yield return null;
     }
 }
