@@ -85,18 +85,28 @@ public class MovePlayer: MonoBehaviour
     }
     private void Move()
     {
-        if(moveLock == false)
+        if (moveLock == false)
         {
-            if(SetDirection())
+            if (SetDirection())
             {
+                AnimationManager.Instance.PlayPlayerAni("PlayerRun");
                 CheckSameDirection();
-                if(keyInputTime <= timeNeedtoRun)
+                if (keyInputTime <= timeNeedtoRun)
                     transform.Translate(moveDirection * velocityWalk * Time.deltaTime);
                 else
                     transform.Translate(moveDirection * velocityRun * Time.deltaTime);
-            
-            //Dog.GetComponent<TrackPlayer>().Track();
+
+                //Dog.GetComponent<TrackPlayer>().Track();
             }
+            else
+            {
+                if (AnimationManager.Instance.PlayerIsMove())
+                    AnimationManager.Instance.PlayPlayerAni("PlayerDefult");
+            }
+        }
+        else {
+            if(AnimationManager.Instance.PlayerIsMove())
+               AnimationManager.Instance.PlayPlayerAni("PlayerDefult");
         }
     }
 
