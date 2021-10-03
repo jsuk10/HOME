@@ -1,0 +1,408 @@
+fileFormatVersion: 2
+guid: 6e7b3dd9964874994b91bac85341a1f5
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: junsun
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2661
+      width: 2571
+      height: 144
+    spriteID: f9de3cd9f118344f3a0943de9dc67c7c
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 1655}
+  - name: dog
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3362
+      y: 843
+      width: 412
+      height: 106
+    spriteID: 73d1a878719bc4cbcac365779396e40f
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1847, y: 645}
+  - name: people
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3362
+      y: 1162
+      width: 394
+      height: 755
+    spriteID: a66f24bd6ad04402f89b1479cf45bb10
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1493, y: 975}
+  - name: car
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3362
+      y: 4
+      width: 540
+      height: 461
+    spriteID: 8ffbd146489934e169a7272aa7f591c3
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1731, y: -401}
+  - name: close door
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3764
+      y: 1162
+      width: 239
+      height: 881
+    spriteID: 63092e088d6ca462e9dada0b3e7336c1
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3764, y: 914}
+  - name: open door
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3910
+      y: 4
+      width: 83
+      height: 840
+    spriteID: b4fa43db88dfd47d49762e2bc8002802
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3702, y: -273}
+  - name: post_box
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3362
+      y: 473
+      width: 181
+      height: 362
+    spriteID: 70804b17987cb407c860c6474ab1a814
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3063, y: 139}
+  - name: road
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2223
+      width: 3350
+      height: 430
+    spriteID: d1fd19b19caab49e2bd19cbc58774f5b
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 2223}
+  - name: back_ground
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1162
+      width: 3350
+      height: 1053
+    spriteID: 59a02ed2c0f724900ac6258f7572873f
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 1065}
+  - name: sky
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 3350
+      height: 1150
+    spriteID: 7516c5acae8c5427aa54cdf5da690df1
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 4}
+  platformSettings: []
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 2048
+  importedTextureHeight: 2048
+  documentSize: {x: 3350, y: 1150}
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  spriteCategoryList:
+    categories: []
+  textureActualWidth: 4096
+  textureActualHeight: 4096
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: junsun
+    spriteName: junsun
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f9de3cd9f118344f3a0943de9dc67c7c
+    layerID: 0
+    mosaicPosition: {x: 4, y: 2661}
+  - name: dog
+    spriteName: dog
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 73d1a878719bc4cbcac365779396e40f
+    layerID: 1502598200
+    mosaicPosition: {x: 3362, y: 843}
+  - name: people
+    spriteName: people
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a66f24bd6ad04402f89b1479cf45bb10
+    layerID: -1434108609
+    mosaicPosition: {x: 3362, y: 1162}
+  - name: car
+    spriteName: car
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 8ffbd146489934e169a7272aa7f591c3
+    layerID: 696029512
+    mosaicPosition: {x: 3362, y: 4}
+  - name: close door
+    spriteName: close door
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 63092e088d6ca462e9dada0b3e7336c1
+    layerID: 366281770
+    mosaicPosition: {x: 3764, y: 1162}
+  - name: open door
+    spriteName: open door
+    isGroup: 0
+    parentIndex: -1
+    spriteID: b4fa43db88dfd47d49762e2bc8002802
+    layerID: 844252706
+    mosaicPosition: {x: 3910, y: 4}
+  - name: post_box
+    spriteName: post_box
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 70804b17987cb407c860c6474ab1a814
+    layerID: 1809384074
+    mosaicPosition: {x: 3362, y: 473}
+  - name: road
+    spriteName: road
+    isGroup: 0
+    parentIndex: -1
+    spriteID: d1fd19b19caab49e2bd19cbc58774f5b
+    layerID: -151838404
+    mosaicPosition: {x: 4, y: 2223}
+  - name: back_ground
+    spriteName: back_ground
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 59a02ed2c0f724900ac6258f7572873f
+    layerID: 933377221
+    mosaicPosition: {x: 4, y: 1162}
+  - name: sky
+    spriteName: sky
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7516c5acae8c5427aa54cdf5da690df1
+    layerID: -822999755
+    mosaicPosition: {x: 4, y: 4}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+  generateGOHierarchy: 0
+  textureAssetName: Road Texture
+  prefabAssetName: Road Prefab
+  spriteLibAssetName: Road Sprite Lib
+  secondarySpriteTextures: []
