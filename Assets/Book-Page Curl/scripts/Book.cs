@@ -17,7 +17,10 @@ public class Book : MonoBehaviour {
     [SerializeField]
     RectTransform BookPanel;
     public Sprite background;
+    // 비활성화시 페이지
     public Sprite[] bookPages;
+    // 활성화시 페이지
+    public Sprite[] ActivebookPages;
     public bool interactable=true;
     public bool enableShadowEffect=true;
     //represent the index of the sprite shown in the right page
