@@ -11,6 +11,7 @@ public class OnOffMainUI : AddUIButtonEvent
 
     public override void Init()
     {
+        LobbyManager.Instance.ObjectDictionary["Album"].transform.Find("AutoFlip/Book").TryGetComponent<AutoFlip>(out autoFlip);
         Set();
     }
 

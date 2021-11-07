@@ -40,7 +40,6 @@ public class ST_PuzzleDisplay : MonoBehaviour
 	private int imageIndex = -1;
 
 
-
 	// Use this for initialization
 	void Start()
 	{
@@ -320,6 +319,7 @@ public class ST_PuzzleDisplay : MonoBehaviour
 
 	}
 	#endregion
+
 	#region custom
 	/// <summary>
 	/// 카메라 위치에 특정 이미지를 앞으로 내놓는 함수
@@ -328,10 +328,19 @@ public class ST_PuzzleDisplay : MonoBehaviour
 	/// <param name="image"> 해당 이미지(엘범) </param>
 	/// <param name="imageNumber"> 해당 이미지(엘범)의 인덱스 -1일 경우 없음. </param>
 	public void StartPuzzle(Texture image, int imageNumber = -1) {
-		PuzzleImage = image;
-		imageIndex = imageNumber;
+		Vector3 camaraPosition = Camera.main.transform.position;
+		camaraPosition.z = -9f;
+		Debug.Log(camaraPosition);
+		if (image != null)
+		{
+			PuzzleImage = image;
+			imageIndex = imageNumber;
+			PuzzlePosition = camaraPosition;
+			gameObject.SetActive(true);
 
+		}
 		//퍼즐 시작시 제어해줄 움직임등(플레이어 움직임 봉인등)
+
 	}
 
 	/// <summary>
@@ -339,6 +348,8 @@ public class ST_PuzzleDisplay : MonoBehaviour
     /// </summary>
 	private void EndFuction() {
 		//퍼즐 끝나면 엘범에 이미지 추가.
+		BookManager.Instance.SetBookImage(imageIndex);
+		this.gameObject.SetActive(false);
 	}
     #endregion
 }
