@@ -143,6 +143,7 @@ public class Book : MonoBehaviour {
             UpdateBook();
         }
     }
+
     public void UpdateBook()
     {
         f = Vector3.Lerp(f, transformPoint(Input.mousePosition), Time.deltaTime * 10);
@@ -445,4 +446,5 @@ public class Book : MonoBehaviour {
         if (onFinish != null)
             onFinish();
     }
+
 }
