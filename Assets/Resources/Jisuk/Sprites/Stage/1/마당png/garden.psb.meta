@@ -689,7 +689,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -1915710769
     mosaicPosition: {x: 0, y: 0}
   - name: hole
@@ -738,14 +738,14 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -971704210
     mosaicPosition: {x: 0, y: 0}
   - name: tree3
     spriteName: 
     isGroup: 1
     parentIndex: 8
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -784143615
     mosaicPosition: {x: 0, y: 0}
   - name: tree3_3
@@ -780,7 +780,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 8
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -784143617
     mosaicPosition: {x: 0, y: 0}
   - name: tree1_3
@@ -815,7 +815,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 8
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -784143616
     mosaicPosition: {x: 0, y: 0}
   - name: tree2_3
