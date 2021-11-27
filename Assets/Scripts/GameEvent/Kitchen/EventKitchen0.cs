@@ -29,7 +29,9 @@ public class EventKitchen0 : GameEvent
 
         StartCoroutine(PlayerMoveAnim());
         yield return new WaitForSeconds(2.0f);
-        DialogueManager.Instance.Begin(1,2);
+        DialogueManager.Instance.Begin(1,1);
+        yield return new WaitForSeconds(0.5f);
+        DialogueManager.Instance.Begin(2,2);
         yield return new WaitForSeconds(1.0f);
         this.enabled = false;
         owner.StartStageEvent(1);

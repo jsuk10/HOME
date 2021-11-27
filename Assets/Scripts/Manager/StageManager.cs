@@ -43,6 +43,7 @@ public class StageManager : Singleton<StageManager>
                     child.Find(nameof(StageInfo.VCam)).gameObject,
                     child.Find(nameof(StageInfo.Position)).gameObject,
                     child.Find(nameof(StageInfo.GameEvent)).GetComponent<StageGameEvent>()));
+            Debug.Log("StageInfo" + i + "Initialize");
         }
     }
 
@@ -51,24 +52,36 @@ public class StageManager : Singleton<StageManager>
     /// </summary>
     public void SetStage(int CurrentStageNum)
     {
+        
         currentStageNum = CurrentStageNum;
 
         StageInfo curStage = listStageInfo[currentStageNum];
-
-        foreach(var stage in listStageInfo)
-            stage.VCam.SetActive(false);
         
         player.transform.position = curStage.Position.transform.Find("Player").position;
         
         var dogPosition = curStage.Position.transform.Find("Dog");
+
         if(dogPosition != null)
         {
             dog.transform.position = dogPosition.position;
             dog.SetActive(true);
         }
+        else
+        {
+            dog.SetActive(false);
+        }
         GameEventManager.Instance.CurrentStage = currentStageNum;
+        
         curStage.GameEvent.StartStageEvent(0);
 
+        
+
+        foreach(var stage in listStageInfo)
+        {
+            stage.VCam.SetActive(false);
+        }
+        GameObject curStageFollowTarget =  curStage.VCam.transform.parent.Find("FollowTarget").Find("FollowTarget").gameObject;
+        CameraFollow.Instance.ChangeFollowTarget(curStageFollowTarget);
         curStage.VCam.SetActive(true);
     }
 }

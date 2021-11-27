@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MovePlayer: MonoBehaviour
 {
-    private float velocityWalk = 2f;
-    private float velocityRun = 4;
+    private float velocityWalk = 4f;
+    private float velocityRun = 7;
     private Vector3 moveDirection;
     private Vector3 prevDirection;
     float keyInputTime = 0.0f;

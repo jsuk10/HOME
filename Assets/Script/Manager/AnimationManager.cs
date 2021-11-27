@@ -43,7 +43,7 @@ public class AnimationManager : Singleton<AnimationManager>
         try
         {
             this.PlayerAnimator.Play(animationName);
-            Debug.Log(PlayerAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
+            //Debug.Log(PlayerAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
             //foreach(var a in playerClips) {
             //    Debug.Log($"{a.name} : {a.length}") ;
             //}

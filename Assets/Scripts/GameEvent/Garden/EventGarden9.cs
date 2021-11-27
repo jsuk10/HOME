@@ -24,7 +24,7 @@ public class EventGarden9 : GameEvent
     override public IEnumerator EventAction()
     {
         Debug.Log("다음 스테이지로");
-
+        StageManager.Instance.SetStage(2);
         this.enabled = false;
         yield return null;
     }
