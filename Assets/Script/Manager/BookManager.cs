@@ -52,7 +52,7 @@ public class BookManager : Singleton<BookManager>
     /// <param name="index">이미지의 위치</param>
     /// <param name="sprite">이미지 Sprite</param>
     public void SetBookImage(int index ) {
-        if (index >= fillImage.Length())
+        if (index >= fillImage.Length)
             return;
         IsfillImage[index] = true;
         book.bookPages[index] = fillImage[index];
