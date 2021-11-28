@@ -13,11 +13,9 @@ public class PuzzleManager : Singleton<PuzzleManager>
     public override void Init()
     {
         if(puzzle==null)
-            GameObject.Find("SlidingTile_4by4").TryGetComponent<ST_PuzzleDisplay>(out puzzle);
+            transform.Find("SlidePuzzle").TryGetComponent<ST_PuzzleDisplay>(out puzzle);
         puzzle.gameObject.SetActive(false);
         puzzleImages = Resources.LoadAll<Texture>("Image/puzzle");
-        Debug.Log(this.gameObject.name);
-        Debug.Log(puzzleImages);
     }
 
     [ContextMenu("test")]
