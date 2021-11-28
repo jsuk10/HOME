@@ -25,5 +25,10 @@ public class Controller : MonoBehaviour
             StageManager.Instance.SetStage(1);
              Debug.Log(1);
         }
+        else if(Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            StageManager.Instance.SetStage(2);
+             Debug.Log(1);
+        }
     }
 }

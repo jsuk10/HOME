@@ -11,5 +11,7 @@ public class MainObject : Singleton<MainObject>
     {
         dog = transform.Find("Dog").gameObject;
         player = transform.Find("Player").gameObject;
+
+        dog.SetActive(false);
     }
 }
